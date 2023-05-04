@@ -1,12 +1,14 @@
 import React from 'react';
-import logo from '../img/logo.svg';
+import logo from '../assets/img/logo.svg';
+import '../assets/css/Header.css';
+
 function Header() {
     return (
         <header className="header">
             <div className="wrapper">
                 <div className="header__main">
                     <div className="header-logo">
-                        <a><img src={logo} alt="РМК"/></a>
+                        <img src={logo} alt="РМК"/>
                         <p className="header-text">PMK</p>
                     </div>
                     <nav className="menu">

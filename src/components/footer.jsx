@@ -1,10 +1,12 @@
 import React from 'react';
-import logo from '../img/logo.svg';
+import logo from '../assets/img/logo.svg';
+import '../assets/css/Footer.css';
+
 
 function Footer() {
     return (
         <footer className="footer">
-                <a><img src={logo} alt="РМК"/></a>
+                <img src={logo} alt="РМК"/>
                 <p className="footer-text">2023 © ООО “ПМК”</p>
         </footer>
     );
