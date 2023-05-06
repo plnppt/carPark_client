@@ -1,0 +1,228 @@
+.wrapper {
+    max-width: 1575px;
+    padding: 0 75px;
+    margin: 0 auto;
+}
+
+.presentation-block {
+    width: 100%;
+    height: 56.748vw;
+    position: relative;
+    background: url("../img/main/car.jpg") no-repeat top/100%;
+}
+
+.presentation-block__text {
+    width: 335px;
+    position: absolute;
+    bottom: 210px;
+    font-family: Raleway, system-ui;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 41px;
+    color: #FFFFFF;
+}
+
+@media (max-width: 1640px) {
+    .presentation-block__text {
+        bottom: 100px;
+        right: 900px;
+    }
+}
+
+.sectionName{
+    font-family: 'Open Sans';
+    margin-bottom: 15px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.sectionDis {
+    font-family: Raleway, system-ui;
+    margin-bottom: 15px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sectionDis {
+    font-weight: 300;
+}
+
+.auto-park__main {
+    padding: 58px 0;
+    display: block;
+    margin: 30px auto 150px;
+    width: 1200px;
+    height: 1000px;
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+}
+
+.auto-park__block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.auto-park__block:nth-child(2n) {
+    margin-top: 100px;
+    flex-direction: row-reverse;
+}
+
+.auto-park__blockText {
+    text-align: center;
+    width: 470px;
+    margin: 0 83px;
+}
+
+.auto-park__blockTextTitle {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 35px;
+
+}
+
+.auto-park__blockTextDis {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.auto-park__blockTextSubDis {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    text-align: center;
+    width: 350px;
+    margin: 45px auto;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.carSelect__main {
+    margin: 60px auto;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.carSelect__card {
+    height: 480px;
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #151414;
+}
+
+.productCards {
+    margin-bottom: 120px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* три колонки равной ширины */
+    grid-gap: 20px; /* промежуток между ячейками сетки */
+    grid-row-gap: 80px;
+}
+
+.carSelect__cardImg {
+    width: 100%;
+}
+
+.cardBtn {
+    margin-top: 60px;
+    color: #FFFFFF;
+    width: 284px;
+    height: 65px;
+    background: #000000;
+    border: 1px solid #F5F5F5;
+    border-radius: 6px;
+
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+}
+
+.carName {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.openCatalogBtn {
+    padding-top: 27px;
+    padding-left: 20px;
+    width: 238px;
+    height: 50px;
+    background: #000000;
+    border: 1px solid #F5F5F5;
+    border-radius: 35px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    position: relative;
+}
+
+.openCatalogBtn::after {
+    content: url('../img/catalog/Arrow1.svg');
+    position: absolute;
+    right: 19px;
+    top: 27px;
+}
+
+.contacts {
+    padding-top: 180px;
+    background: url("../img/main/contacts.png") no-repeat top/100%;
+    width: 100%;
+    height: 56.748vw;
+    position: relative;
+}
+
+.contacts__block {
+    padding-top: 30px;
+    padding-left: 75px;
+    width: 580px;
+    height: 600px;
+    background: rgba(17, 16, 16, 0.8);
+}
+
+.contacts__blockDis {
+    display: block;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.contacts__blockInf {
+    margin-top: 120px;
+}
+
+.contacts__blockInf > p,
+.contacts__blockInf > a {
+    text-decoration: none;
+    display: block;
+    font-family: Raleway, system-ui;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 29px;
+    color: #FFFFFF;
+    margin-bottom: 3px;
+}
