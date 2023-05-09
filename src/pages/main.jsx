@@ -24,7 +24,7 @@ export default function Main() {
                                     <p className="auto-park__blockTextTitle">Надёжность и чистота</p>
                                     <p className="auto-park__blockTextDis">Перед использованием, автомобиль проходит:
                                         диагностику ходовой части и двигателя, тщательную чистку салона с bio
-                                        средствами.</p>
+                                        средствами</p>
                                 </div>
                             </div>
                             <div className="auto-park__block">
@@ -33,8 +33,8 @@ export default function Main() {
                                 <div className="auto-park__blockText">
                                     <p className="auto-park__blockTextTitle">Доставка</p>
                                     <p className="auto-park__blockTextDis">Наши водители пригонят машину по нужному
-                                        адресу в назначенное время.</p>
-                                    <p className="auto-park__blockTextSubDis">Цена доставки уточняется у администратора.</p>
+                                        адресу в назначенное время</p>
+                                    <p className="auto-park__blockTextSubDis">Цена доставки уточняется у администратора</p>
                                 </div>
                             </div>
                         </div>

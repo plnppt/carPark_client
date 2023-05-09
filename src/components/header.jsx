@@ -14,7 +14,7 @@ function Header() {
                     <nav className="menu">
                         <ul>
                             <li><a href="/" className="menu__element">Главная</a></li>
-                            <li><a href="/" className="menu__element">Каталог</a></li>
+                            <li><a href="/catalog" className="menu__element">Каталог</a></li>
                             <li><a href="/" className="menu__element">Условия аренды</a></li>
                             <li><a href="/" className="menu__element">Поддержка</a></li>
                             <li><a href="/" className="menu__element">Контакты</a></li>
