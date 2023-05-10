@@ -8,6 +8,7 @@ import Main from "./pages/main";
 import CatalogPage from "./pages/catalog";
 import ErrorPage from "./pages/error-page";
 import RentalConditionsPage from "./pages/rental_conditions";
+import RegPage from "./pages/reg";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     {
         path: "/rental",
         element: <RentalConditionsPage/>,
+    },
+    {
+        path: "/reg",
+        element: <RegPage/>,
     }
 ]);
 
