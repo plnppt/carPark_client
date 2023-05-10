@@ -1,0 +1,143 @@
+.wrapper {
+    max-width: 1575px;
+    padding: 0 75px;
+    margin: 0 auto;
+}
+
+.presentation-block-rent-cond {
+    width: 100%;
+    height: 56.748vw;
+    position: relative;
+    background: url("../img/rental_conditions/Main of rental conditions.png") no-repeat top/100%;
+}
+
+.presentation-block-rent-cond-1__text {
+    width: 430px;
+    position: absolute;
+    font-family: Raleway, system-ui;
+    font-style: normal;
+    font-size: 120px;
+    color: #FFFFFF;
+    bottom: 120px;
+    right: 900px;
+}
+
+.presentation-block-rent-cond-2__text {
+    width: 430px;
+    position: absolute;
+    font-family: Raleway, system-ui;
+    font-style: normal;
+    font-size: 120px;
+    color: #FFFFFF;
+    bottom: 30px;
+    right: 650px;
+}
+
+.block-rent-cond-img {
+    width: 550px;
+    transform: translate(780px, 0px)
+}
+
+.block-rent-cond-1__text {
+    width: 465px;
+    position: absolute;
+    font-family: Raleway, system-ui;
+    font-weight: 400;
+    font-size: 45px;
+    color: #FFFFFF;
+    bottom: -400px;
+    right: 920px;
+}
+
+.block-rent-cond-2__text {
+    width: 465px;
+    position: absolute;
+    font-family: Raleway, system-ui;
+    font-weight: 100;
+    font-size: 40px;
+    color: #FFFFFF;
+    bottom: -400px;
+    right: 460px;
+}
+
+.block-rent-cond-3__text {
+    width: 465px;
+    position: absolute;
+    font-family: Raleway, system-ui;
+    font-weight: 400;
+    font-size: 45px;
+    color: #FFFFFF;
+    bottom: -520px;
+    right: 920px;
+}
+
+.block-rent-cond-4__text {
+    width: 465px;
+    position: absolute;
+    font-family: Raleway, system-ui;
+    font-weight: 100;
+    font-size: 40px;
+    color: #FFFFFF;
+    bottom: -515px;
+    right: 461px;
+}
+
+.block-rent-cond-5__text {
+    width: 465px;
+    position: absolute;
+    font-family: Raleway, system-ui;
+    font-weight: 400;
+    font-size: 45px;
+    color: #FFFFFF;
+    bottom: -640px;
+    right: 920px;
+}
+
+.block-rent-cond-6__text {
+    width: 465px;
+    position: absolute;
+    font-family: Raleway, system-ui;
+    font-weight: 100;
+    font-size: 40px;
+    color: #FFFFFF;
+    bottom: -635px;
+    right: 460px;
+}
+
+.rent-cond-1__text {
+    width: 800px;
+    font-family: Raleway, system-ui;
+    font-weight: 400;
+    font-size: 40px;
+    color: #FFFFFF;
+    transform: translate(300px, 20px)
+}
+
+.rent-cond-2__text {
+    width: 800px;
+    font-family: Raleway, system-ui;
+    font-weight: 100;
+    font-size: 25px;
+    color: #FFFFFF;
+    transform: translate(300px, 0px)
+}
+
+.rent-cond-3__text {
+    width: 800px;
+    font-family: Raleway, system-ui;
+    font-weight: 100;
+    font-size: 25px;
+    color: #FFFFFF;
+    transform: translate(300px, 0px)
+}
+
+.rent-cond-4__text {
+    width: 800px;
+    font-family: Raleway, system-ui;
+    font-weight: 100;
+    font-size: 25px;
+    color: #FFFFFF;
+    transform: translate(300px, 0px)
+}
+
+

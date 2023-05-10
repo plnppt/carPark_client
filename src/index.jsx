@@ -7,8 +7,7 @@ import {
 import Main from "./pages/main";
 import CatalogPage from "./pages/catalog";
 import ErrorPage from "./pages/error-page";
-import './css/index.css';
-import './css/dropstyle.css';
+import RentalConditionsPage from "./pages/rental_conditions";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +18,10 @@ const router = createBrowserRouter([
     {
         path: "/catalog",
         element: <CatalogPage/>,
+    },
+    {
+        path: "/rental",
+        element: <RentalConditionsPage/>,
     }
 ]);
 
