@@ -11,6 +11,8 @@ import './assets/css/Rental_Conditions.css';
 import './assets/css/Reg.css';
 import './assets/css/Support.css';
 import './assets/css/Learn_More_Without_Authorization.css';
+import './assets/css/Learn_More_With_Authorization.css';
+
 import App from './App';
 import Main from "./pages/main";
 import CatalogPage from "./pages/catalog";
@@ -20,6 +22,7 @@ import RentalConditionsPage from "./pages/rental_conditions";
 import RegPage from "./pages/reg";
 import SupportPage from "./pages/support";
 import LearnMorePage from "./pages/learn_more_without_authorization";
+import LearnMore1Page from "./pages/learn_more_with_authorization";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +49,10 @@ const router = createBrowserRouter([
     {
         path: "/learnMore",
         element: <LearnMorePage/>,
+    },
+    {
+        path: "/learnMore1",
+        element: <LearnMore1Page/>,
     }
 ]);
 
