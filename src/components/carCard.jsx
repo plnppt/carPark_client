@@ -6,7 +6,9 @@ function CarCard(props) {
             <span className="carName">{props.carName}</span>
             <img className="carSelect__cardImg" src={props.srcImg}
                  alt="Феррари"/>
-            <button className="cardBtn">Подробнее</button>
+            <a href="http://localhost:3000/learnMore">
+                <button className="cardBtn">Подробнее</button>
+            </a>
         </div>
     )
 }
