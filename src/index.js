@@ -9,6 +9,7 @@ import './assets/css/Main.css';
 import './assets/css/Catalog.css';
 import './assets/css/Rental_Conditions.css';
 import './assets/css/Reg.css';
+import './assets/css/Support.css';
 import App from './App';
 import Main from "./pages/main";
 import CatalogPage from "./pages/catalog";
@@ -16,6 +17,7 @@ import ErrorPage from "./pages/error-page";
 import reportWebVitals from './reportWebVitals';
 import RentalConditionsPage from "./pages/rental_conditions";
 import RegPage from "./pages/reg";
+import SupportPage from "./pages/support";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
     {
         path: "/reg",
         element: <RegPage/>,
+    },
+    {
+        path: "/support",
+        element: <SupportPage/>,
     }
 ]);
 
