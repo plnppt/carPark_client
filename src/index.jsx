@@ -10,6 +10,10 @@ import ErrorPage from "./pages/error-page";
 import RentalConditionsPage from "./pages/rental_conditions";
 import RegPage from "./pages/reg";
 import SupportPage from "./pages/support";
+import EntrancePage from "./pages/entrance";
+import EntranceErrorPage from "./pages/entrance_error";
+import ResetPage from "./pages/reset";
+import NewPassPage from "./pages/new_pass";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +36,22 @@ const router = createBrowserRouter([
     {
         path: "/support",
         element: <SupportPage/>,
+    },
+    {
+        path: "/ent",
+        element: <EntrancePage/>,
+    },
+    {
+        path: "/entr_error",
+        element: <EntranceErrorPage/>,
+    },
+    {
+        path: "/reset",
+        element: <ResetPage/>,
+    },
+    {
+        path: "/new_pass",
+        element: <NewPassPage/>,
     }
 ]);
 

@@ -15,6 +15,10 @@ import './assets/css/Learn_More_With_Authorization.css';
 import './assets/css/Rent_Step1.css';
 import './assets/css/Rent_Step2.css';
 import './assets/css/Feedback.css';
+import './assets/css/Entrance.css';
+import './assets/css/Resert.css';
+import './assets/css/NewPass.css';
+
 
 import App from './App';
 import Main from "./pages/main";
@@ -29,6 +33,10 @@ import LearnMore1Page from "./pages/learn_more_with_authorization";
 import RentStep1Page from "./pages/rent_step1";
 import RentStep2Page from "./pages/rent_step2";
 import FeedbackPage from "./pages/feedback";
+import EntrancePage from "./pages/entrance";
+import EntranceErrorPage from "./pages/entrance_error";
+import ResetPage from "./pages/reset";
+import NewPassPage from "./pages/new_pass";
 
 const router = createBrowserRouter([
     {
@@ -71,6 +79,22 @@ const router = createBrowserRouter([
     {
         path: "/feedback",
         element: <FeedbackPage/>,
+    },
+    {
+        path: "/ent",
+        element: <EntrancePage/>,
+    },
+    {
+        path: "/entr_error",
+        element: <EntranceErrorPage/>,
+    },
+    {
+        path: "/reset",
+        element: <ResetPage/>,
+    },
+    {
+        path: "/new_pass",
+        element: <NewPassPage/>,
     }
 ]);
 
