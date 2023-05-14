@@ -12,6 +12,9 @@ import './assets/css/Reg.css';
 import './assets/css/Support.css';
 import './assets/css/Learn_More_Without_Authorization.css';
 import './assets/css/Learn_More_With_Authorization.css';
+import './assets/css/Rent_Step1.css';
+import './assets/css/Rent_Step2.css';
+import './assets/css/Feedback.css';
 
 import App from './App';
 import Main from "./pages/main";
@@ -23,6 +26,9 @@ import RegPage from "./pages/reg";
 import SupportPage from "./pages/support";
 import LearnMorePage from "./pages/learn_more_without_authorization";
 import LearnMore1Page from "./pages/learn_more_with_authorization";
+import RentStep1Page from "./pages/rent_step1";
+import RentStep2Page from "./pages/rent_step2";
+import FeedbackPage from "./pages/feedback";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +59,18 @@ const router = createBrowserRouter([
     {
         path: "/learnMore1",
         element: <LearnMore1Page/>,
+    },
+    {
+        path: "/rentStep1",
+        element: <RentStep1Page/>,
+    },
+    {
+        path: "/rentStep2",
+        element: <RentStep2Page/>,
+    },
+    {
+        path: "/feedback",
+        element: <FeedbackPage/>,
     }
 ]);
 

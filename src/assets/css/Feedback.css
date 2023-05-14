@@ -1,0 +1,46 @@
+.feedback-page {
+    background: url("../img/rent/rentBG.jpg") no-repeat top/100%;
+    height: 800px;
+}
+
+.feedback-form {
+    display: block;
+    margin: 120px auto 0px;
+    width: 550px;
+    height: auto;
+    padding: 43px 77px 80px;
+    background: #171717;
+}
+
+.feedback-page__btn {
+    display: block;
+    margin: 0 auto;
+    width: 285px;
+    height: 65px;
+    background: #000000;
+    border: 1px solid #F5F5F5;
+    border-radius: 6px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+    transform: translate(1px, 40px);
+}
+
+.feedback-form__title {
+    text-align: center;
+    display: block;
+    font-family: 'Open Sans', system-ui;
+    font-weight: 100;
+    font-size: 30px;
+    line-height: 30px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.feedback-block-img {
+    transform: translate(230px, 10px);
+}

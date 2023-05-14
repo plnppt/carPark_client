@@ -1,0 +1,141 @@
+.rent1-page {
+    background: url("../img/rent/rentBG.jpg") no-repeat top/100%;
+    height: 1324px;
+}
+
+.rent1-form {
+    display: block;
+    margin: 120px auto 0px;
+    width: 550px;
+    height: auto;
+    padding: 43px 77px 80px;
+    background: #171717;
+}
+
+input {
+    display: block;
+    width: 100%;
+    height: 45px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 27px;
+    border: 1px solid #FFFFFF;
+    background: #171717;
+    margin-bottom: 25px;
+    padding-left: 20px;
+    color: #FFFFFF;
+}
+
+.rent1-page__btn {
+    display: block;
+    margin: 0 auto;
+    width: 285px;
+    height: 65px;
+    background: #000000;
+    border: 1px solid #F5F5F5;
+    border-radius: 6px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+    transform: translate(1px, 30px);
+}
+
+.rent1-form__title {
+    margin-bottom: 35px;
+}
+
+.rent1-form__title > span {
+    text-align: center;
+    display: block;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.rent1-form__blockTitle {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+input[type="radio"] {
+    /* Скрыть оригинальный круг */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Установить размер */
+    width: 20px;
+    height: 20px;
+    /* Установить границу */
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    /* Установить пустое пространство для псевдоэлемента */
+    position: relative;
+}
+
+/* Псевдоэлементы для создания круга */
+input[type="radio"]::before {
+    content: "";
+    position: absolute;
+    /* Установить размеры */
+    width: 10px;
+    height: 10px;
+    /* Установить расположение в центре */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Установить границу и скругление углов */
+    border-radius: 50%;
+    border: none;
+}
+
+/* При клике на элемент */
+input[type="radio"]:checked::before {
+    /* Закрасить круг */
+    background-color: #FFFFFF;
+}
+
+#delivery {
+    display: block;
+    margin-top: 37px;
+    margin-bottom: 15px;
+}
+
+#pickup {
+    display: block;
+    margin-bottom: 25px;
+}
+
+#delivery::after,
+#pickup::after {
+    position: absolute;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: #FFFFFF;
+    left: 30px;
+    top: -5px;
+}
+
+#delivery::after {
+    content: "Доставка";
+}
+
+#pickup::after {
+    content: "Самовывоз";
+}
