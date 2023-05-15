@@ -1,0 +1,96 @@
+.editPage {
+    width: 100%;
+    height: 850px;
+    background: #171717;
+}
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.wrapper {
+    max-width: 1575px;
+    padding: 0 75px;
+    margin: 0 auto;
+}
+.accountPage__title {
+    display: block;
+    margin: 0 auto 56px;
+    padding-top: 140px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.accountPage__line {
+    width: 1170px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #000000;
+    transform: rotate(0.1deg);
+}
+.accountPage__refsBlock {
+    width: 1084px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+}
+.accountPage__ref {
+    margin-bottom: 30px;
+    margin-right: 15px;
+    position: relative;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+.accountPage__ref::after {
+    position: absolute;
+    content: "|";
+    right: -14px;
+}
+.afterClear::after {
+    display: none;
+}
+
+.accountPage__ref:last-child:after {
+    content: '';
+}
+.selected > * {
+    color: #989292 !important;
+}
+.editPage__btn {
+    display: block;
+    margin: 0 auto;
+    width: 322px;
+    height: 45px;
+    position: relative;
+    background: #302E2E;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: #FFFFFF;
+    border: none;
+}
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*text-align:center;
+    display: block;
+    margin: 20px 450px -10px;
+    position: relative;*/
+    padding: 25px;
+    background: #171717;
+}
+.edit-form > input {
+    width: 300px;
+    height: 45px;
+}

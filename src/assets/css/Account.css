@@ -1,0 +1,72 @@
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.wrapper {
+    max-width: 1575px;
+    padding: 0 75px;
+    margin: 0 auto;
+}
+.accountPage {
+    width: 100%;
+    height: 848px;
+    background: #171717;
+}
+
+.accountPage__title {
+    display: block;
+    margin: 0 auto 56px;
+    padding-top: 140px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.accountPage__line {
+    width: 1170px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #000000;
+    transform: rotate(0.1deg);
+}
+.accountPage__refsBlock {
+    width: 1084px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+}
+
+.accountPage__ref {
+    margin-bottom: 30px;
+    margin-right: 15px;
+    position: relative;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+.accountPage__ref::after {
+    position: absolute;
+    content: "|";
+    right: -14px;
+}
+.afterClear::after {
+    display: none;
+}
+.accountPage__ref:last-child:after {
+    content: '';
+}
+.accountPage__img {
+    display: block;
+    margin: 43px auto 0px;
+}
+.selected > * {
+    color: #989292 !important;
+}

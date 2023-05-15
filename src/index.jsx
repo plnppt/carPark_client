@@ -14,6 +14,11 @@ import EntrancePage from "./pages/entrance";
 import EntranceErrorPage from "./pages/entrance_error";
 import ResetPage from "./pages/reset";
 import NewPassPage from "./pages/new_pass";
+import HistoryPage from "./pages/history";
+import AccountPage from "./pages/account";
+import CurrOrderPage from "./pages/curr_order";
+import EditPage from "./pages/edit";
+import QRPage from "./pages/qr";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +57,26 @@ const router = createBrowserRouter([
     {
         path: "/new_pass",
         element: <NewPassPage/>,
+    },
+    {
+        path: "/history",
+        element: <HistoryPage/>,
+    },
+    {
+        path: "/account",
+        element: <AccountPage/>
+    },
+    {
+        path: "/curr_order",
+        element: <CurrOrderPage/>
+    },
+    {
+        path: "/edit",
+        element: <EditPage/>
+    },
+    {
+        path: "/qr",
+        element: <QRPage/>
     }
 ]);
 

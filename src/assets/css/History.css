@@ -1,0 +1,111 @@
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.historyPage {
+    width: 100%;
+    height: 848px;
+    background: #171717;
+}
+.wrapper {
+    max-width: 1575px;
+    padding: 0 75px;
+    margin: 0 auto;
+}
+.accountPage {
+    width: 100%;
+    height: 848px;
+    background: #171717;
+}
+.accountPage__title {
+    display: block;
+    margin: 0 auto 56px;
+    padding-top: 140px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.accountPage__line {
+    margin-bottom: 10px;
+    margin-top: -25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1170px;
+    height: 0px;
+    border: 1px solid #000000;
+    transform: rotate(0.1deg);
+}
+.accountPage__refsBlock {
+    width: 1084px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+}
+.accountPage__ref {
+    margin-bottom: 30px;
+    margin-right: 15px;
+    position: relative;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+.accountPage__ref::after {
+    position: absolute;
+    content: "|";
+    right: -14px;
+}
+.afterClear::after {
+    display: none;
+}
+.accountPage__ref:last-child:after {
+    content: '';
+}
+.selected > * {
+    color: #989292 !important;
+}
+.deliverymanLine {
+    margin-bottom: 11px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1360px;
+    padding: 0 25px 0 60px;
+    height: 65px;
+    background: #121212;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+}
+.deliverymanLine__inf {
+    font-size: 20px;
+}
+.deliverymanLine_his {
+    margin-top: 15px;
+    margin-bottom: 11px;
+    width: 1360px;
+    text-align: center;
+    height: 65px;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+}
+.deliverymanLine__inf_his {
+    font-size: 20px;
+}
