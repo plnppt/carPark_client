@@ -23,6 +23,7 @@ import './assets/css/Account.css';
 import './assets/css/Curr_Order.css';
 import './assets/css/Edit.css';
 import './assets/css/QR.css';
+import './assets/css/Pay.css';
 
 
 import App from './App';
@@ -47,6 +48,7 @@ import AccountPage from "./pages/account";
 import CurrOrderPage from "./pages/curr_order";
 import EditPage from "./pages/edit";
 import QRPage from "./pages/qr";
+import PayPage from "./pages/pay";
 
 const router = createBrowserRouter([
     {
@@ -125,6 +127,10 @@ const router = createBrowserRouter([
     {
         path: "/qr",
         element: <QRPage/>
+    },
+    {
+        path: "/pay",
+        element: <PayPage/>
     }
 ]);
 

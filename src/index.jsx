@@ -19,6 +19,7 @@ import AccountPage from "./pages/account";
 import CurrOrderPage from "./pages/curr_order";
 import EditPage from "./pages/edit";
 import QRPage from "./pages/qr";
+import PayPage from "./pages/pay";
 
 const router = createBrowserRouter([
     {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
     {
         path: "/qr",
         element: <QRPage/>
+    },
+    {
+        path: "/pay",
+        element: <PayPage/>
     }
 ]);
 
