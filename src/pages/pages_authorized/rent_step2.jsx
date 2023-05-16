@@ -1,11 +1,11 @@
-import Header from "../../components/header";
+import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
 import React from "react";
 
 export default function RentStep2Page() {
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="rent2-page">
                     <div className="wrapper">

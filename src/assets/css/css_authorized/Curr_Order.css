@@ -104,6 +104,7 @@ a {
     text-align: center;
 
     color: #FFFFFF;
+    transform: translate(-10px, 1px);
 }
 .transparentBtn {
     width: 200px;

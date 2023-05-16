@@ -1,10 +1,10 @@
-import Header from "../../components/header";
+import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
 
 export default function EditPage() {
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="editPage">
                     <div className="wrapper">
@@ -12,7 +12,7 @@ export default function EditPage() {
                         <span className="accountPage__line"></span>
                         <ul className="accountPage__refsBlock">
                             <li className="accountPage__ref selected"><a href="edit">РЕДАКТИРОВАТЬ ЛИЧНЫЕ ДАННЫЕ</a></li>
-                            <li className="accountPage__ref"><a href="#"> ВЫБРАТЬ МАШИНУ</a></li>
+                            <li className="accountPage__ref"><a href="/catalog"> ВЫБРАТЬ МАШИНУ</a></li>
                             <li className="accountPage__ref"><a href="curr_order"> ТЕКУЩИЙ ЗАКАЗ</a></li>
                             <li className="accountPage__ref "><a href="history">ИСТОРИЯ ЗАКАЗОВ</a></li>
                         </ul>

@@ -1,10 +1,10 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
+import HeaderAuthorizade from "../../components/header_authorizade";
+import Footer from "../../components/footer";
 
 export default function PaySuccessPage() {
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="pay-page">
                     <div className="wrapper">
@@ -13,7 +13,7 @@ export default function PaySuccessPage() {
                                 Оплата прошла<br/>успешно!
                             </div>
                             <div className="ok_code">
-                                <img src={require("../assets/img/pay/ok.png")} alt="OK" className="ok_code-img"/>
+                                <img src={require("../../assets/img/pay/ok.png")} alt="OK" className="ok_code-img"/>
                             </div>
                             <button type="button" onClick={(e) => {
                                 e.preventDefault();

@@ -1,11 +1,11 @@
-import Header from "../../components/header";
+import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
 import React from "react";
 
 export default function FeedbackPage() {
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="feedback-page">
                     <div className="wrapper">

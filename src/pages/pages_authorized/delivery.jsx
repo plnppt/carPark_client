@@ -1,10 +1,10 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
+import HeaderAuthorizade from "../../components/header_authorizade";
+import Footer from "../../components/footer";
 
 export default function DeliveryPage() {
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="delivPage">
                     <div className="wrapper">
@@ -13,7 +13,7 @@ export default function DeliveryPage() {
                         <div className="deliverymanLine_order">
                             <span className="deliverymanLine__inf"> 30.05.2023 | 12:00 | 3 д. | Ferrari 488 | ул. Цветочная д. 10 |  Доставка     </span>
                             <div className="deliverymanLine__btns">
-                                <button className="transparentBtn" style={{marginLeft: '250px'}}>В процессе</button>
+                                <button className="transparentBtn" style={{marginLeft: '235px'}}>В процессе</button>
                             </div>
                             <div className="deliverymanLine__btns">
                                     <button className="darkBtn" >Завершено</button>

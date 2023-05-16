@@ -16,7 +16,12 @@ export default function EntranceErrorPage() {
                             <span className="entr-form__blockTitle" style={{marginBottom: '17px'}}>Неверный телефон или пароль.<br/>Проверьте правильность заполненных данных.</span>
                             <input className="entPage__input" type="text" placeholder="Номер телефона"/>
                             <input className="entPage__input" type="password" placeholder="Пароль"/>
-                            <button style={{marginTop: '70px'}} className="entPage__btn">Сохранить</button>
+
+                           <button style={{marginTop: '70px'}} type="button" onClick={(e) => {
+                                e.preventDefault();
+                                window.location.href='http://localhost:3000/account';
+                            }} className="entPage__btn">Сохранить</button>
+
                             <a href="/reset" className="entrPage__btn_reg">Забыли пароль?</a>
                         </form>
                     </div>

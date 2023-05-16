@@ -52,10 +52,10 @@ import CurrOrderPage from "./pages/pages_authorized/curr_order";
 import EditPage from "./pages/pages_authorized/edit";
 import QRPage from "./pages/pages_authorized/qr";
 import PayPage from "./pages/pages_authorized/pay";
-import PaySuccessPage from "./pages/pay_success";
-import PayErrorPage from "./pages/pay_error";
+import PaySuccessPage from "./pages/pages_authorized/pay_success";
+import PayErrorPage from "./pages/pages_authorized/pay_error";
 import ResetErrorPage from "./pages/reset_error";
-import DeliveryPage from "./pages/delivery";
+import DeliveryPage from "./pages/pages_authorized/delivery";
 
 const router = createBrowserRouter([
     {

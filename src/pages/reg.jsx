@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { useState } from "react";
+import React, { useState } from "react";
 import 'axios';
 import axios from "axios";
 import {API_URL_ENDPOINTS} from "../API_URLS";
@@ -121,7 +121,11 @@ const RegPage = () => {
                                     e.preventDefault();
                                     postCustomer();
                                 }}
-                            > Зарегистрироваться </button>
+                                type="button" onClick={(e) => {
+                                e.preventDefault();
+                                window.location.href='http://localhost:3000/account';
+                            }} className="entPage__btn">Зарегистрироваться</button>
+                            <span className="regPage__btn_after">Нажимая данную кнопку, вы соглашаетесь с обработкой персональных данных</span>
                         </form>
                     </div>
                 </section>
