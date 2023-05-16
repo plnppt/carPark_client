@@ -19,9 +19,17 @@ function HeaderAuthorizade() {
                             <li><a href="/rental" className="menu__element">Условия аренды</a></li>
                             <li><a href="/support" className="menu__element">Поддержка</a></li>
                             <li><a href="/" className="menu__element">Контакты</a></li>
+
                             <li><a href="/" className="menu__element">Личный кабинет</a></li>
-                            <li><a href="/logout" className="menu__element">Выход</a></li>
-                            <li><a href="/logout" className="menu__element_logo"> <img src={logOut}/></a></li>
+                            <li><a href="/logout" onClick={(e) => {
+                                e.preventDefault();
+                                window.location.href='http://localhost:3000';
+                            }} className="menu__element">Выход</a></li>
+
+                            <li><a href="/logout" onClick={(e) => {
+                                e.preventDefault();
+                                window.location.href='http://localhost:3000';
+                            }} className="menu__element_logo"> <img src={logOut}/></a></li>
                         </ul>
                     </nav>
                 </div>
