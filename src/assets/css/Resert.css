@@ -40,3 +40,40 @@
     color: #FFFFFF;
     border: none;
 }
+.reset-form__blockTitle {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+.resetPage__btn_reg {
+    position: relative;
+    top: 40px;
+    display: block;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    text-align: center;
+    color: #FFFFFF;
+}
+.reset_er_Page__btn {
+    display: block;
+    top: 55px;
+    margin: 0 auto;
+    width: 300px;
+    height: 45px;
+    position: relative;
+    background: #302E2E;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: #FFFFFF;
+    border: none;
+}

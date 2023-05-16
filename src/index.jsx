@@ -20,6 +20,9 @@ import CurrOrderPage from "./pages/pages_authorized/curr_order";
 import EditPage from "./pages/pages_authorized/edit";
 import QRPage from "./pages/pages_authorized/qr";
 import PayPage from "./pages/pages_authorized/pay";
+import PaySuccessPage from "./pages/pay_success";
+import ResetErrorPage from "./pages/reset_error";
+import DeliveryPage from "./pages/delivery";
 
 const router = createBrowserRouter([
     {
@@ -82,6 +85,18 @@ const router = createBrowserRouter([
     {
         path: "/pay",
         element: <PayPage/>
+    },
+    {
+        path: "/pay_success",
+        element: <PaySuccessPage/>
+    },
+    {
+        path: "/reset_error",
+        element: <ResetErrorPage/>
+    },
+    {
+        path: "/delivery",
+        element: <DeliveryPage/>
     }
 ]);
 

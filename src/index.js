@@ -24,6 +24,9 @@ import './assets/css/css_authorized/Curr_Order.css';
 import './assets/css/css_authorized/Edit.css';
 import './assets/css/css_authorized/QR.css';
 import './assets/css/css_authorized/Pay.css';
+import './assets/css/css_authorized/PaySuccess_Error.css';
+import './assets/css/css_authorized/Delivery.css';
+
 
 
 import App from './App';
@@ -49,6 +52,10 @@ import CurrOrderPage from "./pages/pages_authorized/curr_order";
 import EditPage from "./pages/pages_authorized/edit";
 import QRPage from "./pages/pages_authorized/qr";
 import PayPage from "./pages/pages_authorized/pay";
+import PaySuccessPage from "./pages/pay_success";
+import PayErrorPage from "./pages/pay_error";
+import ResetErrorPage from "./pages/reset_error";
+import DeliveryPage from "./pages/delivery";
 
 const router = createBrowserRouter([
     {
@@ -131,6 +138,22 @@ const router = createBrowserRouter([
     {
         path: "/pay",
         element: <PayPage/>
+    },
+    {
+        path: "/pay_success",
+        element: <PaySuccessPage/>
+    },
+    {
+        path: "/pay_error",
+        element: <PayErrorPage/>
+    },
+    {
+        path: "/reset_error",
+        element: <ResetErrorPage/>
+    },
+    {
+        path: "/delivery",
+        element: <DeliveryPage/>
     }
 ]);
 
