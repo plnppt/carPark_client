@@ -1,9 +1,9 @@
-.rent1-page {
-    background: url("../img/rent/rentBG.jpg") no-repeat top/100%;
-    height: 1324px;
+.rent2-page {
+    background: url("../../img/rent/rentBG.jpg") no-repeat top/100%;
+    height: 800px;
 }
 
-.rent1-form {
+.rent2-form {
     display: block;
     margin: 120px auto 0px;
     width: 550px;
@@ -28,7 +28,7 @@ input {
     color: #FFFFFF;
 }
 
-.rent1-page__btn {
+.rent2-page__btn {
     display: block;
     margin: 0 auto;
     width: 285px;
@@ -43,14 +43,13 @@ input {
     line-height: 21px;
     text-align: center;
     color: #FFFFFF;
-    transform: translate(1px, 30px);
 }
 
-.rent1-form__title {
+.rent2-form__title {
     margin-bottom: 35px;
 }
 
-.rent1-form__title > span {
+.rent2-form__title > span {
     text-align: center;
     display: block;
     font-family: 'Rubik';
@@ -62,7 +61,7 @@ input {
     margin-bottom: 10px;
 }
 
-.rent1-form__blockTitle {
+.rent2-form__blockTitle {
     display: block;
     margin-bottom: 10px;
     font-family: 'Open Sans';
@@ -70,6 +69,19 @@ input {
     font-weight: 300;
     font-size: 16px;
     color: #FFFFFF;
+}
+
+.rent2-form__blockTitle1 {
+    position: absolute;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 13px;
+    color: #FFFFFF;
+    width: 500px;
+    transform: translate(27px, 10px);
 }
 
 input[type="radio"] {
@@ -109,33 +121,43 @@ input[type="radio"]:checked::before {
     background-color: #FFFFFF;
 }
 
-#delivery {
+#cash {
     display: block;
-    margin-top: 37px;
+    margin-top: 25px;
     margin-bottom: 15px;
 }
 
-#pickup {
+#qr-code {
     display: block;
     margin-bottom: 25px;
 }
 
-#delivery::after,
-#pickup::after {
+#cash::after {
     position: absolute;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
     color: #FFFFFF;
-    left: 30px;
-    top: -5px;
+    width: 400px;
+    transform: translate(15px, -4px);
 }
 
-#delivery::after {
-    content: "Доставка";
+#qr-code::after {
+    position: absolute;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: #FFFFFF;
+    width: 100px;
+    transform: translate(15px, -4px);
 }
 
-#pickup::after {
-    content: "Самовывоз";
+#cash::after {
+    content: "Наличными (курьеру или в офисе)";
+}
+
+#qr-code::after {
+    content: "По qr-коду";
 }

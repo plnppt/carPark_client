@@ -1,5 +1,6 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
+import React from "react";
 
 export default function EntranceErrorPage() {
     return (
@@ -17,7 +18,6 @@ export default function EntranceErrorPage() {
                             <input className="entPage__input" type="password" placeholder="Пароль"/>
                             <button style={{marginTop: '70px'}} className="entPage__btn">Сохранить</button>
                             <a href="/reset" className="entrPage__btn_reg">Забыли пароль?</a>
-
                         </form>
                     </div>
                 </section>

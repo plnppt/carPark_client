@@ -1,5 +1,6 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
+import React from "react";
 
 export default function LearnMorePage() {
     return (
@@ -38,7 +39,10 @@ export default function LearnMorePage() {
                             <span className="learn-more-form__blockTitle2">Для того, чтобы арендовать машину,</span>
                             <span className="learn-more-form__blockTitle3">вам необходимо войти в личный кабинет</span>
 
-                            <button className="learn-more-page__btn">Личный кабинет</button>
+                            <button type="button" onClick={(e) => {
+                                e.preventDefault();
+                                window.location.href='http://localhost:3000/ent';
+                            }} className="learn-more-page__btn">Личный кабинет</button>
                         </form>
                     </div>
                 </section>

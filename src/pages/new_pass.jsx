@@ -15,6 +15,7 @@ export default function NewPassPage() {
                             </div>
                             <input className="new_pass__input" type="password" placeholder="Пароль"/>
                             <button style={{marginTop: '70px'}} className="new_passPage__btn">Сохранить</button>
+
                         </form>
                     </div>
                 </section>

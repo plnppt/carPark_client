@@ -17,8 +17,8 @@ function Header() {
                             <li><a href="/catalog" className="menu__element">Каталог</a></li>
                             <li><a href="/rental" className="menu__element">Условия аренды</a></li>
                             <li><a href="/support" className="menu__element">Поддержка</a></li>
-                            <li><a href="/" className="menu__element">Контакты</a></li>
-                            <li><a href="/" className="menu__element">Личный кабинет</a></li>
+                            <li><a href="/contacts" className="menu__element">Контакты</a></li>
+                            <li><a href="/ent" className="menu__element">Личный кабинет</a></li>
                         </ul>
                     </nav>
                 </div>

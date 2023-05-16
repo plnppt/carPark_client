@@ -1,5 +1,5 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 export default function AccountPage(){
     return (
@@ -17,7 +17,7 @@ export default function AccountPage(){
                             <li className="accountPage__ref"><a href="history">ИСТОРИЯ ЗАКАЗОВ</a></li>
                         </ul>
                     </div>
-                    <img className="accountPage__img" src={require("../assets/img/account/dec.png")} alt="РМК"/>
+                    <img className="accountPage__img" src={require("../../assets/img/account/dec.png")} alt="РМК"/>
                 </section>
             </main>
             <Footer/>

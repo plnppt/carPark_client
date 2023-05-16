@@ -14,12 +14,12 @@ import EntrancePage from "./pages/entrance";
 import EntranceErrorPage from "./pages/entrance_error";
 import ResetPage from "./pages/reset";
 import NewPassPage from "./pages/new_pass";
-import HistoryPage from "./pages/history";
-import AccountPage from "./pages/account";
-import CurrOrderPage from "./pages/curr_order";
-import EditPage from "./pages/edit";
-import QRPage from "./pages/qr";
-import PayPage from "./pages/pay";
+import HistoryPage from "./pages/pages_authorized/history";
+import AccountPage from "./pages/pages_authorized/account";
+import CurrOrderPage from "./pages/pages_authorized/curr_order";
+import EditPage from "./pages/pages_authorized/edit";
+import QRPage from "./pages/pages_authorized/qr";
+import PayPage from "./pages/pages_authorized/pay";
 
 const router = createBrowserRouter([
     {

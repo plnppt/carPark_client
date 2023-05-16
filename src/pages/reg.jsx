@@ -1,7 +1,7 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { useState } from "react";
-import "axios";
+import 'axios';
 import axios from "axios";
 import {API_URL_ENDPOINTS} from "../API_URLS";
 
@@ -35,7 +35,7 @@ const RegPage = () => {
     const postCustomer = async () => {
         try {
             const r = await axios.post(API_URL_ENDPOINTS.CUSTOMERS, userClaims)
-            if (r.status == 201) {
+            if (r.status === 201) {
                 console.log("accepted", r)
                 setUserClaims(USER_CLAIMS_TMP)
             } else {
