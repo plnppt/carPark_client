@@ -89,6 +89,8 @@
 
 .carSelect__cardImg {
     width: 100%;
+    height: 300px;
+    object-fit: contain;
 }
 
 .cardBtn {

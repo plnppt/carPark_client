@@ -1,8 +1,44 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import CarCard from "../components/carCard";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {API_URL_ENDPOINTS} from "../API_URLS";
 
-export default function Main() {
+const Main = () => {
+    const [previewCars, setPreviewCars] = useState([])
+    const fetchCars = async () => {
+        try {
+            const r = await axios.get(API_URL_ENDPOINTS.CARS + "?limit=6&offset=0")
+            if (r.status == 200) {
+                setPreviewCars(getRandomElements(r.data.results, 2))
+                console.log("accepted", r.data)
+            } else {
+                console.log(r)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        fetchCars()
+    }, [])
+
+    function getRandomElements(arr, count) {
+        var randomElements = [];
+
+        while (randomElements.length < count) {
+            var randomIndex = Math.floor(Math.random() * arr.length);
+            var randomElement = arr[randomIndex];
+
+            if (!randomElements.includes(randomElement)) {
+                randomElements.push(randomElement);
+            }
+        }
+        return randomElements;
+    }
+
     return (
         <>
             <Header/>
@@ -44,8 +80,15 @@ export default function Main() {
                     <div className="wrapper">
                         <h3 className="sectionName">Выбрать машину</h3>
                         <div className="carSelect__main">
-                            <CarCard srcImg={require("../assets/img/catalog/Audi R8 V10 performance II (4S).png")} carName={"Audi R8 V10 performance II (4S)"}/>
-                            <CarCard srcImg={require("../assets/img/catalog/Ferrari 488.png")} carName={"Ferrari 488"}/>
+                            {
+                                previewCars.map((value, index) => (
+                                    <CarCard
+                                        objId={value.id}
+                                        key={index}
+                                        srcImg={value.car_image}
+                                        carName={value.name}/>
+                                ))
+                            }
                             <a href="/catalog" className="openCatalogBtn">Весь каталог</a>
                         </div>
                     </div>
@@ -69,3 +112,5 @@ export default function Main() {
         </>
     );
 }
+
+export default Main;
