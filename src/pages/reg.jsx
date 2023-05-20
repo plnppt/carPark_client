@@ -1,9 +1,9 @@
-import Header from "../components/header";
 import Footer from "../components/footer";
 import React, { useState } from "react";
-import 'axios';
+import "axios";
 import axios from "axios";
 import {API_URL_ENDPOINTS} from "../API_URLS";
+import HeaderAuthorizade from "../components/header_authorizade";
 
 const RegPage = () => {
     const USER_CLAIMS_TMP = {
@@ -16,26 +16,10 @@ const RegPage = () => {
       }
     const [userClaims, setUserClaims] = useState(USER_CLAIMS_TMP)
 
-    // const fetchCars = async () => {
-    //     try {
-    //         const r = await axios.get("/api/v1/cars/")
-    //         if (r.status == 200) {
-    //             console.log("accepted", r.data)
-    //         } else {
-    //             console.log(r)
-    //         }
-    //     }
-    //     catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
-    // fetchCars();
-
     const postCustomer = async () => {
         try {
             const r = await axios.post(API_URL_ENDPOINTS.CUSTOMERS, userClaims)
-            if (r.status === 201) {
+            if (r.status == 201) {
                 console.log("accepted", r)
                 setUserClaims(USER_CLAIMS_TMP)
             } else {
@@ -56,7 +40,7 @@ const RegPage = () => {
     }
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="reg-page">
                     <div className="wrapper">
@@ -115,16 +99,15 @@ const RegPage = () => {
                                 onChange={handleClaimChange}
                             />
                             <button
+                                type="button"
                                 style={{marginTop: '40px'}}
                                 className="regPage__btn"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     postCustomer();
-                                }}
-                                type="button" onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href='http://localhost:3000/account';
-                            }} className="entPage__btn">Зарегистрироваться</button>
+                                    window.location.href='/account';
+                                }} className="entPage__btn">Зарегистрироваться
+                            </button>
                             <span className="regPage__btn_after">Нажимая данную кнопку, вы соглашаетесь с обработкой персональных данных</span>
                         </form>
                     </div>

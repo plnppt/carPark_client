@@ -1,11 +1,13 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {API_URL_ENDPOINTS} from "../../API_URLS";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import AuthService from "../../auth_service";
 
 const LearnMore1Page = () => {
+    const navigate = useNavigate()
     const {id} = useParams()
     const [carClaims, setCarClaims] = useState(null)
 
@@ -27,9 +29,11 @@ const LearnMore1Page = () => {
         }
     }
 
-    if (isInteger(id)) {
-        fetchCar(parseInt(id))
-    }
+    useEffect(() => {
+        if (isInteger(id)) {
+            fetchCar(parseInt(id))
+        }
+    }, [])
 
     return (
         <>
@@ -66,10 +70,29 @@ const LearnMore1Page = () => {
                                     <span className="learn-more1-form__blockTitle1">{carClaims.overclocking} с</span>
                                     <span className="learn-more1-form__blockTitle1">{carClaims.price} руб/сутки</span>
 
-                                    <button type="button" onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href='/rentStep1';
-                                    }} className="learn-more1-page__btn">Арендовать</button>
+                                    {
+                                        AuthService.isLoggedIn() ? (
+                                            <button
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    navigate(`/rentStep1/${carClaims.id}`)
+                                                }} className="learn-more1-page__btn">Арендовать
+                                            </button>
+                                        ) : (
+                                            <>
+                                                <span
+                                                    className="learn-more-form__blockTitle2">Для того, чтобы арендовать машину,</span>
+                                                <span
+                                                    className="learn-more-form__blockTitle3">вам необходимо войти в личный кабинет</span>
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        navigate(`/ent`)
+                                                    }} className="learn-more1-page__btn">Личный кабинет
+                                                </button>
+                                            </>
+                                        )
+                                    }
                                 </form>
                             </div>
                         </section>

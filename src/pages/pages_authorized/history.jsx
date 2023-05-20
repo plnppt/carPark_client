@@ -1,7 +1,29 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {API_URL_ENDPOINTS} from "../../API_URLS";
 
-export default function HistoryPage() {
+const HistoryPage = () => {
+    const [historyOrders, setHistoryOrders] = useState([])
+    const fetchOrders = async () => {
+        try {
+            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?limit=1&offset=0")
+            if (r.status == 200) {
+                setHistoryOrders(r.data.results)
+                console.log("accepted", r.data)
+            } else {
+                console.log(r)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        fetchOrders()
+    }, [])
+
     return (
         <>
             <HeaderAuthorizade/>
@@ -17,12 +39,15 @@ export default function HistoryPage() {
                             <li className="accountPage__ref selected"><a href="history">ИСТОРИЯ ЗАКАЗОВ</a></li>
                         </ul>
                         <div className="deliverymanLine_his">
-                            <span className="deliverymanLine__inf_his"> 05.02.2023 | 1 день | Maserati Ghibli | Доставка   </span>
-                        </div>
-                        <div className="deliverymanLine_his">
-                            <span className="deliverymanLine__inf_his"> 01.01.2023 | 3 д. | Ferrari 488 | Самовывоз      </span>
-                        </div>
-                        <div>
+                            <span className="deliverymanLine__inf_his">
+                                {
+                                    historyOrders && historyOrders.map((value, index) => (
+                                        <div key={index}>
+                                            <span>{value.start_date} | {value.rental_days} | {value.car} | {value.delivery_type}</span>
+                                            <span></span>
+                                        </div>
+                                    ))}
+                            </span>
                         </div>
                     </div>
                 </section>
@@ -31,3 +56,5 @@ export default function HistoryPage() {
         </>
     )
 }
+
+export default HistoryPage;

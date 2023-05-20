@@ -1,10 +1,10 @@
-import Header from "../components/header";
 import Footer from "../components/footer";
+import HeaderAuthorizade from "../components/header_authorizade";
 
 export default function SupportPage() {
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="support-page">
                     <div className="wrapper">

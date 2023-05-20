@@ -1,11 +1,11 @@
-import Header from "../components/header";
 import Footer from "../components/footer";
 import React from "react";
+import HeaderAuthorizade from "../components/header_authorizade";
 
 export default function ResetPage() {
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="reset-page">
                     <div className="wrapper">

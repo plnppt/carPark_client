@@ -37,10 +37,8 @@ import reportWebVitals from './reportWebVitals';
 import RentalConditionsPage from "./pages/rental_conditions";
 import RegPage from "./pages/reg";
 import SupportPage from "./pages/support";
-import LearnMorePage from "./pages/learn_more_without_authorization";
 import LearnMore1Page from "./pages/pages_authorized/learn_more_with_authorization";
 import RentStep1Page from "./pages/pages_authorized/rent_step1";
-import RentStep2Page from "./pages/pages_authorized/rent_step2";
 import FeedbackPage from "./pages/pages_authorized/feedback";
 import EntrancePage from "./pages/entrance";
 import EntranceErrorPage from "./pages/entrance_error";
@@ -80,20 +78,12 @@ const router = createBrowserRouter([
         element: <SupportPage/>,
     },
     {
-        path: "/learnMore",
-        element: <LearnMorePage/>,
-    },
-    {
         path: "/learnMore1/:id",
         element: <LearnMore1Page/>,
     },
     {
-        path: "/rentStep1",
+        path: "/rentStep1/:id",
         element: <RentStep1Page/>,
-    },
-    {
-        path: "/rentStep2",
-        element: <RentStep2Page/>,
     },
     {
         path: "/feedback",

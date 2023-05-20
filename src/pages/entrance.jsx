@@ -1,11 +1,37 @@
-import Header from "../components/header";
 import Footer from "../components/footer";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
+import AuthService from "../auth_service"
+import HeaderAuthorizade from "../components/header_authorizade";
 
-export default function EntrancePage() {
+const EntrancePage = () => {
+    const navigate = useNavigate();
+
+    const USER_CLAIMS_TMP = {
+        "phone_number": "",
+        "password": "",
+    }
+    const [userClaims, setUserClaims] = useState(USER_CLAIMS_TMP)
+
+    const handleClaimChange = (e) => {
+        setUserClaims(prevState => {
+            return {
+                ...prevState,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
+    useEffect(() => {
+        if (AuthService.isLoggedIn()) {
+            navigate('/account')
+        }
+    }, [])
+
+
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="ent-page">
                     <div className="wrapper">
@@ -13,13 +39,28 @@ export default function EntrancePage() {
                             <div className="ent-form__title">
                                 Вход в кабинет
                             </div>
-                            <input className="entPage__input" type="text" placeholder="Номер телефона"/>
-                            <input className="entPage__input" type="password" placeholder="Пароль"/>
+                            <input
+                                className="entPage__input"
+                                type="text"
+                                placeholder="Номер телефона"
+                                value={userClaims.phone_number}
+                                name="phone_number"
+                                onChange={handleClaimChange}
+                            />
+                            <input
+                                className="entPage__input"
+                                type="password"
+                                placeholder="Пароль"
+                                value={userClaims.password}
+                                name="password"
+                                onChange={handleClaimChange}
+                            />
                             <a href="/reg" className="entPage__btn_reg">Регистрация</a>
                             <button style={{marginTop: '40px'}} type="button" onClick={(e) => {
                                 e.preventDefault();
-                                window.location.href='http://localhost:3000/account';
-                            }} className="entPage__btn">Сохранить</button>
+                                AuthService.login(userClaims.phone_number, userClaims.password)
+                                navigate('/account');
+                            }} className="entPage__btn">Вход</button>
                         </form>
                     </div>
                 </section>
@@ -28,3 +69,5 @@ export default function EntrancePage() {
         </>
     );
 }
+
+export default EntrancePage;

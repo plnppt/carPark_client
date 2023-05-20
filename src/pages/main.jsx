@@ -1,9 +1,9 @@
-import Header from "../components/header";
 import Footer from "../components/footer";
 import CarCard from "../components/carCard";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {API_URL_ENDPOINTS} from "../API_URLS";
+import HeaderAuthorizade from "../components/header_authorizade";
 
 const Main = () => {
     const [previewCars, setPreviewCars] = useState([])
@@ -41,7 +41,7 @@ const Main = () => {
 
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="presentation-block">
                     <div className="wrapper">

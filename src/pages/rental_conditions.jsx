@@ -1,10 +1,10 @@
-import Header from "../components/header";
 import Footer from "../components/footer";
+import HeaderAuthorizade from "../components/header_authorizade";
 
 export default function RentalConditionsPage() {
     return (
         <>
-            <Header/>
+            <HeaderAuthorizade/>
             <main>
                 <section className="presentation-block-rent-cond"></section>
                 <div className="wrapper">
