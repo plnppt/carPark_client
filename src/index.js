@@ -41,7 +41,6 @@ import LearnMore1Page from "./pages/pages_authorized/learn_more_with_authorizati
 import RentStep1Page from "./pages/pages_authorized/rent_step1";
 import FeedbackPage from "./pages/pages_authorized/feedback";
 import EntrancePage from "./pages/entrance";
-import EntranceErrorPage from "./pages/entrance_error";
 import ResetPage from "./pages/reset";
 import NewPassPage from "./pages/new_pass";
 import HistoryPage from "./pages/pages_authorized/history";
@@ -92,10 +91,6 @@ const router = createBrowserRouter([
     {
         path: "/ent",
         element: <EntrancePage/>,
-    },
-    {
-        path: "/entr_error",
-        element: <EntranceErrorPage/>,
     },
     {
         path: "/reset",

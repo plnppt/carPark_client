@@ -12,6 +12,21 @@ const EntrancePage = () => {
         "password": "",
     }
     const [userClaims, setUserClaims] = useState(USER_CLAIMS_TMP)
+    const [error, setError] = useState(false);
+
+    const handleLogin = () => {
+        AuthService.login(userClaims.phone_number, userClaims.password)
+            .then((response) => {
+                if (response.access) {
+                    navigate("/account");
+                } else {
+                    setError(true);
+                }
+            })
+            .catch((error) => {
+                setError(true);
+            });
+    };
 
     const handleClaimChange = (e) => {
         setUserClaims(prevState => {
@@ -39,6 +54,13 @@ const EntrancePage = () => {
                             <div className="ent-form__title">
                                 Вход в кабинет
                             </div>
+                            {error && (
+                                <span
+                                    className="entr-form__blockTitle"
+                                    style={{marginBottom: "17px"}}>
+                  Неверный телефон или пароль. Проверьте правильность заполненных данных.
+                </span>
+                            )}
                             <input
                                 className="entPage__input"
                                 type="text"
@@ -56,11 +78,13 @@ const EntrancePage = () => {
                                 onChange={handleClaimChange}
                             />
                             <a href="/reg" className="entPage__btn_reg">Регистрация</a>
-                            <button style={{marginTop: '40px'}} type="button" onClick={(e) => {
+                            <button
+                                style={{marginTop: '40px'}}
+                                type="button" onClick={(e) => {
                                 e.preventDefault();
-                                AuthService.login(userClaims.phone_number, userClaims.password)
-                                navigate('/account');
-                            }} className="entPage__btn">Вход</button>
+                                handleLogin();
+                            }} className="entPage__btn">Вход
+                            </button>
                         </form>
                     </div>
                 </section>
