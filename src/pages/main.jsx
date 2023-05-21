@@ -39,6 +39,16 @@ const Main = () => {
         return randomElements;
     }
 
+    useEffect(() => {
+        const href = window.location.href.substring(
+            window.location.href.lastIndexOf('#') + 1
+        );
+        const element = document.getElementById(href);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
     return (
         <>
             <HeaderAuthorizade/>
@@ -95,7 +105,7 @@ const Main = () => {
                 </section>
                 <section className="contacts">
                     <div className="wrapper">
-                        <div className="contacts__block">
+                        <div id="contacts" className="contacts__block">
                             <span className="contacts__blockDis">Остались вопросы?</span>
                             <span className="contacts__blockDis">Свяжитесь с нами</span>
                             <div className="contacts__blockInf">

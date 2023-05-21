@@ -77,7 +77,9 @@ const EntrancePage = () => {
                                 name="password"
                                 onChange={handleClaimChange}
                             />
-                            <a href="/reg" className="entPage__btn_reg">Регистрация</a>
+                            {!error && (
+                                <a href="/reg" className="entPage__btn_reg">Регистрация</a>
+                            )}
                             <button
                                 style={{marginTop: '40px'}}
                                 type="button" onClick={(e) => {
@@ -85,6 +87,9 @@ const EntrancePage = () => {
                                 handleLogin();
                             }} className="entPage__btn">Вход
                             </button>
+                            {error && (
+                                <a href="/reset" className="entrPage__btn_reg">Забыли пароль?</a>
+                            )}
                         </form>
                     </div>
                 </section>

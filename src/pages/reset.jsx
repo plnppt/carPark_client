@@ -2,7 +2,7 @@ import Footer from "../components/footer";
 import React from "react";
 import HeaderAuthorizade from "../components/header_authorizade";
 
-export default function ResetPage() {
+const ResetPage = () => {
     return (
         <>
             <HeaderAuthorizade/>
@@ -16,7 +16,7 @@ export default function ResetPage() {
                             <input className="resetPage__input" type="text" placeholder="Слово “секрет” "/>
                             <button style={{marginTop: '70px'}} type="button" onClick={(e) => {
                                 e.preventDefault();
-                                window.location.href='http://localhost:3000/new_pass';
+                                window.location.href='/new_pass';
                             }} className="resetPage__btn">Сбросить пароль</button>
                         </form>
                     </div>
@@ -26,3 +26,5 @@ export default function ResetPage() {
         </>
     );
 }
+
+export default ResetPage;

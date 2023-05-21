@@ -1,7 +1,7 @@
 import Footer from "../components/footer";
 import HeaderAuthorizade from "../components/header_authorizade";
 
-export default function ResetErrorPage() {
+const ResetErrorPage = () => {
     return (
         <>
             <HeaderAuthorizade/>
@@ -24,3 +24,5 @@ export default function ResetErrorPage() {
         </>
     );
 }
+
+export default ResetErrorPage;
