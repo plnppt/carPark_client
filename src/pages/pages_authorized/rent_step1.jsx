@@ -122,11 +122,11 @@ const RentStep1Page = () => {
     const [cashOption, setCashOption] = useState(false);
 
     const handleOptionChange2 = (event) => {
-        const selectedOption = event.target.value === "qr-код";
+        const selectedOption = event.target.value === "QR-код";
         if (selectedOption) {
             setOrderClaims((prevClaims) => ({
                 ...prevClaims,
-                payment_method: "qr-код",
+                payment_method: "QR-код",
             }));
         }
         setCashOption(selectedOption);
@@ -342,7 +342,7 @@ const RentStep1Page = () => {
                                         />
                                         <input
                                             type="radio"
-                                            value="qr-код"
+                                            value="QR-код"
                                             checked={cashOption}
                                             onChange={handleOptionChange2}
                                             id="qr-code"
@@ -361,8 +361,7 @@ const RentStep1Page = () => {
                                                 setErrors(validationErrors);
                                             } else {
                                                 postOrder();
-
-                                                // navigate('/feedback')
+                                                navigate('/feedback')
                                             }
                                         }} className="rent2-page__btn">Забронировать
                                         </button>

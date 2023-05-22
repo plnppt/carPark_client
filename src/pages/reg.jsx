@@ -4,8 +4,10 @@ import "axios";
 import axios from "axios";
 import {API_URL_ENDPOINTS} from "../API_URLS";
 import HeaderAuthorizade from "../components/header_authorizade";
+import {useNavigate} from "react-router-dom";
 
 const RegPage = () => {
+    const navigate = useNavigate();
     const USER_CLAIMS_TMP = {
         "phone_number": "",
         "secret_word": "",
@@ -105,7 +107,7 @@ const RegPage = () => {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     postCustomer();
-                                    window.location.href='/account';
+                                    navigate("/account");
                                 }} className="entPage__btn">Зарегистрироваться
                             </button>
                             <span className="regPage__btn_after">Нажимая данную кнопку, вы соглашаетесь с обработкой персональных данных</span>

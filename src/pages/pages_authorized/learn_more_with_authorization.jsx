@@ -43,8 +43,8 @@ const LearnMore1Page = () => {
                     <main>
                         <section className="learn-more1-page">
                             <div className="wrapper">
-                                <form action="" className="learn-more1-form">
-                                    <div className="learn-more1-form__title">
+                                <form action="" className="learn-more-form">
+                                    <div className="learn-more-form__title">
                                         <span>{carClaims.name}</span>
                                     </div>
 
