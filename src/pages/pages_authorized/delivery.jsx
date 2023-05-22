@@ -1,7 +1,7 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
 
-export default function DeliveryPage() {
+const DeliveryPage = () => {
     return (
         <>
             <HeaderAuthorizade/>
@@ -35,3 +35,5 @@ export default function DeliveryPage() {
         </>
     )
 }
+
+export default DeliveryPage;

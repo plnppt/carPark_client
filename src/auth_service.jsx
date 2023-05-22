@@ -26,8 +26,6 @@ class AuthService {
 
     isLoggedIn() {
         const token = JSON.parse(localStorage.getItem('token'));
-        console.log(token)
-        console.log(this.getToken())
         return token && this.getToken()
     }
 

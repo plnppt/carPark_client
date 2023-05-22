@@ -1,7 +1,7 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
 
-export default function AccountPage(){
+const AccountPage = () => {
     return (
         <>
             <HeaderAuthorizade/>
@@ -24,3 +24,5 @@ export default function AccountPage(){
         </>
     )
 }
+
+export default AccountPage;

@@ -139,3 +139,11 @@ input[type="radio"]:checked::before {
 #pickup::after {
     content: "Самовывоз";
 }
+
+.error {
+    border: 1px solid red;
+}
+
+.gray-text {
+    color: gray;
+}

@@ -10,7 +10,6 @@ import './assets/css/Catalog.css';
 import './assets/css/Rental_Conditions.css';
 import './assets/css/Reg.css';
 import './assets/css/Support.css';
-import './assets/css/Learn_More_Without_Authorization.css';
 import './assets/css/css_authorized/Learn_More_With_Authorization.css';
 import './assets/css/css_authorized/Rent_Step1.css';
 import './assets/css/css_authorized/Rent_Step2.css';
@@ -51,7 +50,6 @@ import QRPage from "./pages/pages_authorized/qr";
 import PayPage from "./pages/pages_authorized/pay";
 import PaySuccessPage from "./pages/pages_authorized/pay_success";
 import PayErrorPage from "./pages/pages_authorized/pay_error";
-import ResetErrorPage from "./pages/reset_error";
 import DeliveryPage from "./pages/pages_authorized/delivery";
 
 const router = createBrowserRouter([
@@ -131,10 +129,6 @@ const router = createBrowserRouter([
     {
         path: "/pay_error",
         element: <PayErrorPage/>
-    },
-    {
-        path: "/reset_error",
-        element: <ResetErrorPage/>
     },
     {
         path: "/delivery",

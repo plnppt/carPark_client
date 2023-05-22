@@ -5,7 +5,6 @@ import axios from "axios";
 import {API_URL_ENDPOINTS} from "../../API_URLS";
 import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
-import DateTime from "react-datetime";
 import authHeader from "../../auth_header";
 
 const RentStep1Page = () => {
@@ -13,6 +12,7 @@ const RentStep1Page = () => {
     const {id} = useParams()
     const [carClaims, setCarClaims] = useState(null)
     const [currStep, setCurrStep] = useState(1)
+    const [errors, setErrors] = useState({});
 
     const ORDER_CLAIMS_TMP = {
         "car": parseInt(id),
@@ -26,18 +26,34 @@ const RentStep1Page = () => {
         "passport_issue_date": "",
         "registration_address": "",
         "driver_license_number": "",
-        "delivery_type": "",
+        "delivery_type": "Самовывоз",
         "delivery_address": "",
-        "pickup_address": "",
+        "pickup_address": "Университетская площадь, 1",
         "start_date": "",
         "rental_days": "",
-        "payment_method": ""
+        "payment_method": "Наличные"
     }
 
     const [orderClaims, setOrderClaims] = useState(ORDER_CLAIMS_TMP)
 
     function isInteger(value) {
         return /^\d+$/.test(value);
+    }
+
+    const fetchUser = async () => {
+        try {
+            const r = await axios.get(API_URL_ENDPOINTS.USER_ME, {headers: authHeader()})
+            if (r.status == 200) {
+                console.log("accepted", r.data.id)
+                return r.data.id
+            } else {
+                console.log(r)
+                return null;
+            }
+        } catch (err) {
+            console.log(err)
+            return null;
+        }
     }
 
     const fetchCar = async (carId) => {
@@ -78,18 +94,23 @@ const RentStep1Page = () => {
 
     const handleOptionChange = (event) => {
         const selectedOption = event.target.value === "Доставка";
-        setDeliveryOption(selectedOption);
-        if (!selectedOption) {
-            setDeliveryAddress("Университетская площадь, 1");
+        if (selectedOption) {
+            setOrderClaims((prevClaims) => ({
+                ...prevClaims,
+                delivery_type: "Доставка",
+                pickup_address: ""
+            }));
         }
+        setDeliveryOption(selectedOption);
     };
 
     const postOrder = async () => {
         try {
-            const r = await axios.post(API_URL_ENDPOINTS.ORDERS, orderClaims, {headers: authHeader()})
+            let owner = await fetchUser();
+            const r = await axios.post(API_URL_ENDPOINTS.ORDERS,
+                {...orderClaims, owner: owner}, {headers: authHeader()})
             if (r.status === 201) {
                 console.log("accepted", r)
-                setOrderClaims(orderClaims)
             } else {
                 console.log(r)
             }
@@ -102,6 +123,12 @@ const RentStep1Page = () => {
 
     const handleOptionChange2 = (event) => {
         const selectedOption = event.target.value === "qr-код";
+        if (selectedOption) {
+            setOrderClaims((prevClaims) => ({
+                ...prevClaims,
+                payment_method: "qr-код",
+            }));
+        }
         setCashOption(selectedOption);
     };
 
@@ -121,37 +148,36 @@ const RentStep1Page = () => {
                                                     <span>Аренда</span>
                                                     <span>{carClaims.name}</span>
                                                 </div>
-
                                                 <input
-                                                    className="rent1-page__input"
+                                                    className={`rent1-page__input ${errors.last_name ? 'error' : ''}`}
                                                     type="text" placeholder="Фамилия"
                                                     value={orderClaims.last_name}
                                                     name="last_name"
                                                     onChange={handleClaimChange}
                                                 />
                                                 <input
-                                                    className="rent1-page__input"
+                                                    className={`rent1-page__input ${errors.first_name ? 'error' : ''}`}
                                                     type="text" placeholder="Имя"
                                                     value={orderClaims.first_name}
                                                     name="first_name"
                                                     onChange={handleClaimChange}
                                                 />
                                                 <input
-                                                    className="rent1-page__input"
+                                                    className={`rent1-page__input ${errors.patronymic ? 'error' : ''}`}
                                                     type="text" placeholder="Отчество (при наличии)"
                                                     value={orderClaims.patronymic}
                                                     name="patronymic"
                                                     onChange={handleClaimChange}
                                                 />
                                                 <input
-                                                    className="rent1-page__input"
-                                                    type="text" placeholder="Дата рождения"
+                                                    className={`rent1-page__input ${errors.date_birth ? 'error' : ''} gray-text`}
+                                                    type="date" placeholder="Дата рождения"
                                                     value={orderClaims.date_birth}
                                                     name="date_birth"
                                                     onChange={handleClaimChange}
                                                 />
                                                 <input
-                                                    className="rent1-page__input"
+                                                    className={`rent1-page__input ${errors.phone_number ? 'error' : ''}`}
                                                     type="text" placeholder="Телефон"
                                                     value={orderClaims.phone_number}
                                                     name="phone_number"
@@ -159,28 +185,28 @@ const RentStep1Page = () => {
                                                 />
                                                 <span className="rent1-form__blockTitle">Паспорт</span>
                                                 <input
-                                                    className="rent1-page__input"
+                                                    className={`rent1-page__input ${errors.passport_number ? 'error' : ''}`}
                                                     type="text" placeholder="Серия и номер"
                                                     value={orderClaims.passport_number}
                                                     name="passport_number"
                                                     onChange={handleClaimChange}
                                                 />
                                                 <input
-                                                    className="rent1-page__input"
+                                                    className={`rent1-page__input ${errors.passport_issued_by ? 'error' : ''}`}
                                                     type="text" placeholder="Кем выдан"
                                                     value={orderClaims.passport_issued_by}
                                                     name="passport_issued_by"
                                                     onChange={handleClaimChange}
                                                 />
                                                 <input
-                                                    className="rent1-page__input"
-                                                    type="text" placeholder="Дата выдачи"
+                                                    className={`rent1-page__input ${errors.passport_issue_date ? 'error' : ''}  gray-text`}
+                                                    type="date" placeholder="Дата выдачи"
                                                     value={orderClaims.passport_issue_date}
                                                     name="passport_issue_date"
                                                     onChange={handleClaimChange}
                                                 />
                                                 <input
-                                                    className="rent1-page__input"
+                                                    className={`rent1-page__input ${errors.registration_address ? 'error' : ''}`}
                                                     type="text" placeholder="Адрес регистрации"
                                                     value={orderClaims.registration_address}
                                                     name="registration_address"
@@ -189,7 +215,7 @@ const RentStep1Page = () => {
                                                 <span
                                                     className="rent1-form__blockTitle">Водительское удостоверение</span>
                                                 <input
-                                                    className="rent1-page__input"
+                                                    className={`rent1-page__input ${errors.driver_license_number ? 'error' : ''}`}
                                                     type="text" placeholder="Серия и номер"
                                                     value={orderClaims.driver_license_number}
                                                     name="driver_license_number"
@@ -227,7 +253,42 @@ const RentStep1Page = () => {
                                                     type="button"
                                                     onClick={(e) => {
                                                         e.preventDefault();
-                                                        setCurrStep(2);
+                                                        const validationErrors = {};
+                                                        if (orderClaims.last_name.trim() === '') {
+                                                            validationErrors.last_name = 'Введите Фамилию';
+                                                        }
+                                                        if (orderClaims.first_name.trim() === '') {
+                                                            validationErrors.first_name = 'Введите Имя';
+                                                        }
+                                                        if (orderClaims.patronymic.trim() === '') {
+                                                            validationErrors.patronymic = 'Введите Отчество';
+                                                        }
+                                                        if (orderClaims.date_birth.trim() === '') {
+                                                            validationErrors.date_birth = 'Введите дату рождения';
+                                                        }
+                                                        if (orderClaims.phone_number.trim() === '') {
+                                                            validationErrors.phone_number = 'Введите телефон';
+                                                        }
+                                                        if (orderClaims.passport_number.trim() === '') {
+                                                            validationErrors.passport_number = 'Введите серию и номер';
+                                                        }
+                                                        if (orderClaims.passport_issued_by.trim() === '') {
+                                                            validationErrors.passport_issued_by = 'Введите кем выдан ';
+                                                        }
+                                                        if (orderClaims.passport_issue_date.trim() === '') {
+                                                            validationErrors.passport_issue_date = 'Введите когда выдан';
+                                                        }
+                                                        if (orderClaims.registration_address.trim() === '') {
+                                                            validationErrors.registration_address = 'Введите адрес регистрации';
+                                                        }
+                                                        if (orderClaims.driver_license_number.trim() === '') {
+                                                            validationErrors.driver_license_number = 'Введите серию и номер';
+                                                        }
+                                                        if (Object.keys(validationErrors).length > 0) {
+                                                            setErrors(validationErrors);
+                                                        } else {
+                                                            setCurrStep(2);
+                                                        }
                                                     }} className="rent1-page__btn">Далее
                                                 </button>
                                             </form>
@@ -250,30 +311,28 @@ const RentStep1Page = () => {
                                     <form action="" className="rent2-form">
                                         <div className="rent2-form__title">
                                             <span>Аренда</span>
-                                            <span>{orderClaims.car}</span>
+                                            <span>{carClaims.name}</span>
                                         </div>
 
                                         <span className="rent2-form__blockTitle">С какого числа хотите арендовать машину?</span>
-                                        <DateTime
-                                            className="rent2-page__input"
-                                            inputProps={{ placeholder: "Дата и время" }}
+                                        <input
+                                            className={`rent1-page__input ${errors.start_date ? 'error' : ''}  gray-text`}
+                                            type="date" placeholder="Дата"
                                             value={orderClaims.start_date}
                                             name="start_date"
-                                            onChange={(dateTime) => handleClaimChange({ target: { name: "start_date", value: dateTime } })}
+                                            onChange={handleClaimChange}
                                         />
-
                                         <span className="rent2-form__blockTitle"></span>
-                                        <span className="rent2-form__blockTitle">На сколько дней собираетесь арендовать?</span>
+                                        <span
+                                            className="rent2-form__blockTitle">На сколько дней собираетесь арендовать?</span>
                                         <input
-                                            className="rent2-page__input"
+                                            className={`rent1-page__input ${errors.rental_days ? 'error' : ''}`}
                                             type="text" placeholder="Количество дней"
                                             value={orderClaims.rental_days}
                                             name="rental_days"
                                             onChange={handleClaimChange}
                                         />
-
                                         <span className="rent2-form__blockTitle">Выберите способ оплаты</span>
-
                                         <input
                                             type="radio"
                                             value="Наличные"
@@ -291,9 +350,22 @@ const RentStep1Page = () => {
 
                                         <button type="button" onClick={(e) => {
                                             e.preventDefault();
-                                            postOrder();
-                                            navigate('/feedback')
-                                        }} className="rent2-page__btn">Забронировать</button>
+                                            const validationErrors = {};
+                                            if (orderClaims.start_date.trim() === '') {
+                                                validationErrors.start_date = 'Введите дату начала аренды';
+                                            }
+                                            if (orderClaims.rental_days.trim() === '') {
+                                                validationErrors.rental_days = 'Введите количество дней аренды';
+                                            }
+                                            if (Object.keys(validationErrors).length > 0) {
+                                                setErrors(validationErrors);
+                                            } else {
+                                                postOrder();
+
+                                                // navigate('/feedback')
+                                            }
+                                        }} className="rent2-page__btn">Забронировать
+                                        </button>
 
                                         <span className="rent2-form__blockTitle1">точную цену и возможность аренды Вам сообщит администратор после нажатия кнопки «забронировать»</span>
                                     </form>

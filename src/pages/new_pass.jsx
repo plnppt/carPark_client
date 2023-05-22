@@ -1,8 +1,11 @@
 import Footer from "../components/footer";
 import React from "react";
 import HeaderAuthorizade from "../components/header_authorizade";
+import {useNavigate} from "react-router-dom";
 
-export default function NewPassPage() {
+const NewPassPage = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <HeaderAuthorizade/>
@@ -18,7 +21,7 @@ export default function NewPassPage() {
 
                             <button style={{marginTop: '70px'}} type="button" onClick={(e) => {
                                 e.preventDefault();
-                                window.location.href='http://localhost:3000/account';
+                                navigate("/account");
                             }} className="new_passPage__btn">Сохранить</button>
                         </form>
                     </div>
@@ -28,3 +31,5 @@ export default function NewPassPage() {
         </>
     );
 }
+
+export default NewPassPage;

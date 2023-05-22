@@ -1,7 +1,7 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
 
-export default function QRPage() {
+const QRPage = () => {
     return (
         <>
             <HeaderAuthorizade/>
@@ -18,3 +18,5 @@ export default function QRPage() {
         </>
     )
 }
+
+export default QRPage;

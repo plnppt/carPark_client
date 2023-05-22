@@ -1,7 +1,9 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
+import {useNavigate} from "react-router-dom";
 
-export default function PayPage() {
+const PayPage = () => {
+    const navigate = useNavigate();
     return (
         <>
             <HeaderAuthorizade/>
@@ -16,7 +18,7 @@ export default function PayPage() {
                             <input className="payPage__input" type="text" placeholder="Срок действия"/>
                             <input className="payPage__input" type="text" placeholder="CCV/CVC"/><button type="button" onClick={(e) => {
                                 e.preventDefault();
-                                window.location.href='http://localhost:3000/pay_success';
+                                navigate("/pay_success");
                             }} className="pay-page__btn">Оплатить</button>
                         </form>
                     </div>
@@ -26,3 +28,5 @@ export default function PayPage() {
         </>
     )
 }
+
+export default PayPage;

@@ -1,7 +1,10 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
+import {useNavigate} from "react-router-dom";
 
-export default function PaySuccessPage() {
+const PaySuccessPage = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <HeaderAuthorizade/>
@@ -17,7 +20,7 @@ export default function PaySuccessPage() {
                             </div>
                             <button type="button" onClick={(e) => {
                                 e.preventDefault();
-                                window.location.href='http://localhost:3000';
+                                navigate("/");
                             }} className="pay-page__btn">Главная</button>
                         </form>
                     </div>
@@ -27,3 +30,5 @@ export default function PaySuccessPage() {
         </>
     )
 }
+
+export default PaySuccessPage;

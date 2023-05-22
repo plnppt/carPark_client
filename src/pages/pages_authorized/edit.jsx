@@ -1,7 +1,7 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
 
-export default function EditPage() {
+const EditPage = () => {
     return (
         <>
             <HeaderAuthorizade/>
@@ -31,3 +31,5 @@ export default function EditPage() {
         </>
     )
 }
+
+export default EditPage;

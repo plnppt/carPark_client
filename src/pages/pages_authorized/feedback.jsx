@@ -1,8 +1,10 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
-export default function FeedbackPage() {
+const FeedbackPage = () => {
+    const navigate = useNavigate();
     return (
         <>
             <HeaderAuthorizade/>
@@ -20,7 +22,7 @@ export default function FeedbackPage() {
 
                             <button type="button" onClick={(e) => {
                                 e.preventDefault();
-                                window.location.href='http://localhost:3000';
+                                navigate("/");
                             }} className="feedback-page__btn">Главная</button>
                         </form>
                     </div>
@@ -30,3 +32,5 @@ export default function FeedbackPage() {
         </>
     );
 }
+
+export default FeedbackPage;

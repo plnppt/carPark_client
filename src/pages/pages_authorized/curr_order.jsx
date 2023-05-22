@@ -1,7 +1,9 @@
 import HeaderAuthorizade from "../../components/header_authorizade";
 import Footer from "../../components/footer";
+import {useNavigate} from "react-router-dom";
 
-export default function CurrOrderPage() {
+const CurrOrderPage = () => {
+    const navigate = useNavigate();
     return (
         <>
             <HeaderAuthorizade/>
@@ -21,7 +23,7 @@ export default function CurrOrderPage() {
                             <div className="deliverymanLine__btns">
                                 <button type="button" onClick={(e) => {
                                     e.preventDefault();
-                                    window.location.href='http://localhost:3000/qr';
+                                    navigate("/qr");
                                 }} className="darkBtn">Оплатить</button>
                             </div>
                         </div>
@@ -38,3 +40,5 @@ export default function CurrOrderPage() {
         </>
     )
 }
+
+export default CurrOrderPage;
