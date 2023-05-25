@@ -3,14 +3,15 @@ import Footer from "../../components/footer";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {API_URL_ENDPOINTS} from "../../API_URLS";
+import authHeader from "../../auth_header";
 
 const HistoryPage = () => {
     const [historyOrders, setHistoryOrders] = useState([])
     const fetchOrders = async () => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?limit=1&offset=0")
+            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_past=true", {headers: authHeader()})
             if (r.status == 200) {
-                setHistoryOrders(r.data.results)
+                setHistoryOrders(r.data)
                 console.log("accepted", r.data)
             } else {
                 console.log(r)
@@ -20,12 +21,37 @@ const HistoryPage = () => {
         }
     }
 
+    const fetchCarById = async (id) => {
+        try {
+            const r = await axios.get(API_URL_ENDPOINTS.CARS + `${id}`)
+            return r.data.name;
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const formatDate = (date) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+        const formattedDate = date.toLocaleDateString('ru-RU', options);
+        return formattedDate;
+    };
+
     useEffect(() => {
         fetchOrders()
     }, [])
 
-    return (
-        <>
+    useEffect(() => {
+        const fetchCarNames = async () => {
+            const ordersWithCarNames = await Promise.all(historyOrders.map(async (order) => {
+                const carName = await fetchCarById(order.car);
+                return {...order, carName};
+            }));
+            setHistoryOrders(ordersWithCarNames);
+        };
+        fetchCarNames();
+    }, [historyOrders]);
+
+    return (<>
             <HeaderAuthorizade/>
             <main>
                 <section className="historyPage">
@@ -38,23 +64,16 @@ const HistoryPage = () => {
                             <li className="accountPage__ref"><a href="curr_order"> ТЕКУЩИЙ ЗАКАЗ</a></li>
                             <li className="accountPage__ref selected"><a href="history">ИСТОРИЯ ЗАКАЗОВ</a></li>
                         </ul>
-                        <div className="deliverymanLine_his">
-                            <span className="deliverymanLine__inf_his">
-                                {
-                                    historyOrders && historyOrders.map((value, index) => (
-                                        <div key={index}>
-                                            <span>{value.start_date} | {value.rental_days} | {value.car} | {value.delivery_type}</span>
-                                            <span></span>
-                                        </div>
-                                    ))}
-                            </span>
-                        </div>
+                        {historyOrders.map((value, index) => (<div className="deliverymanLine_his" key={index}>
+                <span className="deliverymanLine__inf_his">
+                  {formatDate(new Date(value.start_date))} | {value.rental_days} д. | {value.carName} | {value.delivery_type}
+                </span>
+                            </div>))}
                     </div>
                 </section>
             </main>
             <Footer/>
-        </>
-    )
+        </>)
 }
 
 export default HistoryPage;
