@@ -112,7 +112,7 @@ const Main = () => {
                                 <a href="tel:+78001234567">8 (800) 123-45-67</a>
                                 <p>г. Воронеж, Университетская</p>
                                 <p>площадь, 1</p>
-                                <p>pmk_company@gmail.ru</p>
+                                <p>pmk.company2023@yandex.ru</p>
                             </div>
                         </div>
                     </div>

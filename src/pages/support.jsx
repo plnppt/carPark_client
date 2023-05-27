@@ -58,7 +58,7 @@ const SupportPage = () => {
                             <span className="support-form__blockTitle">Кому:</span>
                             <input
                                 className="support-page__input"
-                                type="text" value="pmk_company@gmail.ru"
+                                type="text" value="pmk.company2023@yandex.ru"
                                 readOnly
                             />
                             <span className="support-form__blockTitle">Ваше обращение:</span>
