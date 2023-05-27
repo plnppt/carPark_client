@@ -9,7 +9,7 @@ a {
 }
 .curr_orderPage {
     width: 100%;
-    height: 850px;
+    min-height: 850px;
     background: #171717;
 }
 .deliverymanLine_order {
