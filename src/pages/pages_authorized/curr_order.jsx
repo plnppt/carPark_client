@@ -8,7 +8,8 @@ import authHeader from "../../auth_header";
 
 const CurrOrderPage = () => {
     const navigate = useNavigate();
-    const [historyOrders, setHistoryOrders] = useState([])
+    const [historyOrders, setHistoryOrders] = useState([]);
+    const [carNames, setCarNames] = useState([]);
     const fetchOrders = async () => {
         try {
             const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_curr=true", {headers: authHeader()})
@@ -27,6 +28,7 @@ const CurrOrderPage = () => {
     const fetchCarById = async (id) => {
         try {
             const r = await axios.get(API_URL_ENDPOINTS.CARS + `${id}`)
+            console.log(r.data.name)
             return r.data.name;
         } catch (err) {
             console.log(err)
@@ -39,21 +41,28 @@ const CurrOrderPage = () => {
         return formattedDate;
     };
 
-    useEffect(() => {
-        fetchOrders()
-    }, [])
-
-    const fetchCarNames = async () => {
-        const ordersWithCarNames = await Promise.all(historyOrders.map(async (order) => {
-            const carName = await fetchCarById(order.car);
-            return {...order, carName};
-        }));
-        setHistoryOrders(ordersWithCarNames);
-    };
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
 
     useEffect(() => {
+        fetchOrders();
+    }, []);
+
+    useEffect(() => {
+        const fetchCarNames = async () => {
+            if (historyOrders.length > 0 && !isDataLoaded) {
+                const ordersWithCarNames = await Promise.all(
+                    historyOrders.map(async (order) => {
+                        const carName = await fetchCarById(order.car);
+                        return { ...order, carName };
+                    })
+                );
+                setHistoryOrders(ordersWithCarNames);
+                setIsDataLoaded(true);
+            }
+        };
+
         fetchCarNames();
-    }, []);//по сути в скобка надо historyOrders, но тогда идет постоянное обновление страницы
+    }, [historyOrders, isDataLoaded]);
 
     return (
         <>

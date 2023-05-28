@@ -67,3 +67,6 @@ input {
     text-align: center;
     color: #FFFFFF;
 }
+.error {
+    border: 1px solid red;
+}

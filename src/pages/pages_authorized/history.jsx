@@ -36,20 +36,28 @@ const HistoryPage = () => {
         return formattedDate;
     };
 
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
+
     useEffect(() => {
-        fetchOrders()
-    }, [])
+        fetchOrders();
+    }, []);
 
     useEffect(() => {
         const fetchCarNames = async () => {
-            const ordersWithCarNames = await Promise.all(historyOrders.map(async (order) => {
-                const carName = await fetchCarById(order.car);
-                return {...order, carName};
-            }));
-            setHistoryOrders(ordersWithCarNames);
+            if (historyOrders.length > 0 && !isDataLoaded) {
+                const ordersWithCarNames = await Promise.all(
+                    historyOrders.map(async (order) => {
+                        const carName = await fetchCarById(order.car);
+                        return { ...order, carName };
+                    })
+                );
+                setHistoryOrders(ordersWithCarNames);
+                setIsDataLoaded(true);
+            }
         };
+
         fetchCarNames();
-    }, [historyOrders]);
+    }, [historyOrders, isDataLoaded]);
 
     return (<>
             <HeaderAuthorizade/>
