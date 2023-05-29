@@ -7,9 +7,11 @@ import authHeader from "../../auth_header";
 
 const DeliveryPage = () => {
     const [historyOrders, setHistoryOrders] = useState([])
+    const [isDelivered, setIsDelivered] = useState(false);
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
     const fetchOrders = async () => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_delivery=true")
+            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_delivery=true", {headers: authHeader()})
             if (r.status == 200) {
                 setHistoryOrders(r.data)
                 console.log("accepted", r.data)
@@ -31,12 +33,10 @@ const DeliveryPage = () => {
     }
 
     const formatDate = (date) => {
-        const options = {year: 'numeric', month: 'long', day: 'numeric'};
+        const options = {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
         const formattedDate = date.toLocaleDateString('ru-RU', options);
         return formattedDate;
     };
-
-    const [isDataLoaded, setIsDataLoaded] = useState(false);
 
     useEffect(() => {
         fetchOrders();
@@ -48,7 +48,7 @@ const DeliveryPage = () => {
                 const ordersWithCarNames = await Promise.all(
                     historyOrders.map(async (order) => {
                         const carName = await fetchCarById(order.car);
-                        return { ...order, carName };
+                        return {...order, carName};
                     })
                 );
                 setHistoryOrders(ordersWithCarNames);
@@ -59,6 +59,34 @@ const DeliveryPage = () => {
         fetchCarNames();
     }, [historyOrders, isDataLoaded]);
 
+    const updateDeliveryStatus = async (orderId, isDelivered) => {
+        try {
+            const response = await axios.patch(
+                API_URL_ENDPOINTS.ORDERS + `${orderId}/`,
+                {is_delivered: isDelivered},
+                {headers: authHeader()}
+            );
+            if (response.status === 200) {
+                console.log("Delivery status updated");
+            } else {
+                console.log(response);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleDeliveryStatusChange = async (orderId, isDelivered) => {
+        updateDeliveryStatus(orderId, isDelivered);
+        const updatedOrders = historyOrders.map((order) => {
+            if (order.id === orderId) {
+                return { ...order, is_delivered: isDelivered };
+            }
+            return { ...order, is_delivered: false };
+        });
+        setHistoryOrders(updatedOrders);
+    };
+
     return (
         <>
             <HeaderAuthorizade/>
@@ -67,20 +95,36 @@ const DeliveryPage = () => {
                     <div className="wrapper">
                         <span className="accountPage__title">Доставка</span>
                         <span className="accountPage__line"></span>
-                {/*        {historyOrders.map((value, index) => (<div className="deliverymanLine_order" key={index}>*/}
-                {/*<span className="deliverymanLine__inf">*/}
-                {/*  {formatDate(new Date(value.start_date))} | {value.rental_days} д. | {value.carName} | {value.delivery_address} |{value.delivery_type}*/}
-                {/*</span>*/}
-                            <div className="deliverymanLine_order">
-                                <span className="deliverymanLine__inf"> 30.05.2023 | 12:00 | 3 д. | Ferrari 488 | ул. Цветочная д. 10 |  Доставка     </span>
-                                <div className="deliverymanLine__btns">
-                                    <button className="transparentBtn" style={{marginLeft: '235px'}}>В процессе</button>
-                                </div>
-                                <div className="deliverymanLine__btns">
-                                    <button className="darkBtn">Завершено</button>
-                                </div>
+                        {historyOrders.map((value, index) => (<div className="deliverymanLine_order" key={index}>
+                <span className="deliverymanLine__inf">
+                  {formatDate(new Date(value.start_date))} | {value.rental_days} д. | {value.carName} | {value.delivery_address}
+                </span>
+                            <div className="deliverymanLine__btns">
+                                <button
+                                    className={`transparentBtn ${
+                                        value.is_delivered ? "darkBtn" : ""
+                                    }`}
+                                    style={{marginLeft: "235px"}}
+                                    onClick={() =>
+                                        handleDeliveryStatusChange(value.id, false)
+                                    }
+                                    disabled={value.is_delivered}
+                                >
+                                    В процессе
+                                </button>
                             </div>
-                        {/*</div>))}*/}
+                            <div className="deliverymanLine__btns">
+                                <button
+                                    className={`darkBtn ${value.is_delivered ? "transparentBtn" : ""}`}
+                                    onClick={() =>
+                                        handleDeliveryStatusChange(value.id, true)
+                                    }
+                                    disabled={value.is_delivered}
+                                >
+                                    Завершено
+                                </button>
+                            </div>
+                        </div>))}
                     </div>
                 </section>
             </main>
