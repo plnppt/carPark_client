@@ -16,9 +16,11 @@ const EntrancePage = () => {
 
     const handleLogin = () => {
         AuthService.login(userClaims.phone_number, userClaims.password)
-            .then((response) => {
-                if (response.access) {
+            .then((role) => {
+                if (role === "client") {
                     navigate("/account");
+                } else if (role === "driver") {
+                    navigate("/delivery")
                 } else {
                     setError(true);
                 }

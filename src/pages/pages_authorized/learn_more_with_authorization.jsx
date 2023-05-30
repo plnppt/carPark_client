@@ -16,7 +16,7 @@ const LearnMore1Page = () => {
     }
     const fetchCar = async (carId) => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.CARS + carId)
+            const r = await axios.get(API_URL_ENDPOINTS.CARS + carId + "/")
             if (r.status == 200) {
                 setCarClaims(r.data)
                 console.log("accepted", r.data)

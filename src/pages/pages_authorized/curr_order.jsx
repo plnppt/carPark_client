@@ -12,7 +12,7 @@ const CurrOrderPage = () => {
     const [carNames, setCarNames] = useState([]);
     const fetchOrders = async () => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_curr=true", {headers: authHeader()})
+            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_curr=true/", {headers: authHeader()})
             if (r.status == 200) {
                 const orders = r.data.map(order => ({...order, isPaid: order.is_paid}));
                 setHistoryOrders(orders)

@@ -11,7 +11,7 @@ const DeliveryPage = () => {
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const fetchOrders = async () => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_delivery=true", {headers: authHeader()})
+            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_delivery=true/", {headers: authHeader()})
             if (r.status == 200) {
                 setHistoryOrders(r.data)
                 console.log("accepted", r.data)

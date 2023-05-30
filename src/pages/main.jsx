@@ -9,7 +9,7 @@ const Main = () => {
     const [previewCars, setPreviewCars] = useState([])
     const fetchCars = async () => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.CARS + "?limit=6&offset=0")
+            const r = await axios.get(API_URL_ENDPOINTS.CARS + "?limit=6&offset=0/")
             if (r.status == 200) {
                 setPreviewCars(getRandomElements(r.data.results, 2))
                 console.log("accepted", r.data)

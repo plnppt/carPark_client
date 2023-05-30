@@ -1,5 +1,6 @@
 import axios from "axios";
-import { API_URL_ENDPOINTS } from "./API_URLS";
+import {API_URL_ENDPOINTS} from "./API_URLS";
+import authHeader from "./auth_header";
 
 class AuthService {
     login(phone_number, password) {
@@ -16,7 +17,20 @@ class AuthService {
                 }
                 console.log(response.data)
                 return response.data;
-            });
+            }).then(value => {
+                return this.setRole();
+            })
+    }
+
+    setRole() {
+        return axios.get(API_URL_ENDPOINTS.ROLE, {headers: authHeader()}
+        )
+            .then((value => {
+                if (value.data.role) {
+                    localStorage.setItem("role", value.data.role);
+                }
+                return value.data.role
+            }))
     }
 
     logout() {
@@ -34,4 +48,5 @@ class AuthService {
     }
 
 }
+
 export default new AuthService();
