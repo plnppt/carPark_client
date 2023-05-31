@@ -13,17 +13,15 @@ const EntrancePage = () => {
     }
     const [userClaims, setUserClaims] = useState(USER_CLAIMS_TMP)
     const [error, setError] = useState(false);
+    const [userRole, setUserRole] = useState(null);
+    const [isLoginCompleted, setIsLoginCompleted] = useState(false);
 
     const handleLogin = () => {
         AuthService.login(userClaims.phone_number, userClaims.password)
             .then((role) => {
-                if (role === "client") {
-                    navigate("/account");
-                } else if (role === "driver") {
-                    navigate("/delivery")
-                } else {
-                    setError(true);
-                }
+                setUserRole(role);
+                localStorage.setItem("userRole", role);
+                setIsLoginCompleted(true);
             })
             .catch((error) => {
                 setError(true);
@@ -40,11 +38,24 @@ const EntrancePage = () => {
     }
 
     useEffect(() => {
-        if (AuthService.isLoggedIn()) {
-            navigate('/account')
+        const savedUserRole = localStorage.getItem("userRole");
+        if (AuthService.isLoggedIn() && savedUserRole) {
+            setUserRole(savedUserRole);
+            setIsLoginCompleted(true);
         }
-    }, [])
+    }, []);
 
+    useEffect(() => {
+        if (isLoginCompleted) {
+            if (userRole === "client") {
+                navigate("/account");
+            } else if (userRole === "driver") {
+                navigate("/delivery");
+            } else {
+                setError(true);
+            }
+        }
+    }, [isLoginCompleted]);
 
     return (
         <>
@@ -90,7 +101,7 @@ const EntrancePage = () => {
                             }} className="entPage__btn">Вход
                             </button>
                             {error && (
-                                <a href="/reset" className="entrPage__btn_reg">Забыли пароль?</a>
+                                <a href={`/reset?tel=${userClaims.phone_number}`} className="entrPage__btn_reg">Забыли пароль?</a>
                             )}
                         </form>
                     </div>

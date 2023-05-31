@@ -1,7 +1,7 @@
 import Footer from "../components/footer";
 import React, {useState} from "react";
 import HeaderAuthorizade from "../components/header_authorizade";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {API_URL_ENDPOINTS} from "../API_URLS";
 
@@ -9,13 +9,17 @@ const ResetPage = () => {
     const [secretWord, setSecretWord] = useState("");
     const [error, setError] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+
+    const myTel = queryParams.get('tel');
 
     const handleResetPassword = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get(API_URL_ENDPOINTS.CUSTOMERS);
-            if (response.data.valid) {
-                navigate("/new_pass");
+            const response = await axios.get(API_URL_ENDPOINTS.VERIFY + `?tel=${myTel}&secret=${secretWord}`);
+            if (response.status === 200) {
+                navigate(`/new_pass?tel=${myTel}&secret=${secretWord}`);
             } else {
                 setError(true);
             }
@@ -44,6 +48,7 @@ const ResetPage = () => {
                             <input
                                 className="resetPage__input" type="text"
                                 placeholder="Слово “секрет” "
+                                value={secretWord}
                                 onChange={(e) => setSecretWord(e.target.value)}
                             />
                             <button style={{ marginTop: "70px" }} type="button"

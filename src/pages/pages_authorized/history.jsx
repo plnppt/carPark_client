@@ -9,7 +9,7 @@ const HistoryPage = () => {
     const [historyOrders, setHistoryOrders] = useState([])
     const fetchOrders = async () => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_past=true/", {headers: authHeader()})
+            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_past=true", {headers: authHeader()})
             if (r.status == 200) {
                 setHistoryOrders(r.data)
                 console.log("accepted", r.data)
@@ -23,7 +23,7 @@ const HistoryPage = () => {
 
     const fetchCarById = async (id) => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.CARS + `${id}`)
+            const r = await axios.get(API_URL_ENDPOINTS.CARS + `${id}` + "/")
             return r.data.name;
         } catch (err) {
             console.log(err)

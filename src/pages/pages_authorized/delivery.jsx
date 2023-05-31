@@ -7,11 +7,10 @@ import authHeader from "../../auth_header";
 
 const DeliveryPage = () => {
     const [historyOrders, setHistoryOrders] = useState([])
-    const [isDelivered, setIsDelivered] = useState(false);
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const fetchOrders = async () => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_delivery=true/", {headers: authHeader()})
+            const r = await axios.get(API_URL_ENDPOINTS.ORDERS + "?is_delivery=true", {headers: authHeader()})
             if (r.status == 200) {
                 setHistoryOrders(r.data)
                 console.log("accepted", r.data)
@@ -25,7 +24,7 @@ const DeliveryPage = () => {
 
     const fetchCarById = async (id) => {
         try {
-            const r = await axios.get(API_URL_ENDPOINTS.CARS + `${id}`)
+            const r = await axios.get(API_URL_ENDPOINTS.CARS + `${id}` + "/")
             return r.data.name;
         } catch (err) {
             console.log(err)

@@ -8,7 +8,7 @@ const HeaderAuthorizade = () => {
     const handleScrollToContacts = () => {
         const element = document.getElementById('contacts');
         if (element) {
-            scrollToElement(element, 1000); // Указываем время скроллинга в миллисекундах (в данном случае 1 секунда)
+            scrollToElement(element, 1000);
         }
     };
 
