@@ -18,18 +18,20 @@ const RegPage = () => {
       }
     const [userClaims, setUserClaims] = useState(USER_CLAIMS_TMP)
     const [errors, setErrors] = useState({});
-
+    const [errorReg, setErrorReg] = useState(false);
     const postCustomer = async () => {
         try {
             const r = await axios.post(API_URL_ENDPOINTS.CUSTOMERS, userClaims)
             if (r.status == 201) {
                 console.log("accepted", r)
                 setUserClaims(USER_CLAIMS_TMP)
+                navigate("/ent");
             } else {
                 console.log(r)
             }
         } catch (err) {
             console.log(err)
+            setErrorReg(true)
         }
     }
 
@@ -51,6 +53,13 @@ const RegPage = () => {
                             <div className="reg-form__title">
                                 Регистрация
                             </div>
+                            {errorReg && (
+                                <span
+                                    className="entr-form__blockTitle"
+                                    style={{marginBottom: "17px"}}>
+                  Аккаунт с данным номером телефона существует
+                </span>
+                            )}
                             <input
                                 className={`regPage__input ${errors.last_name ? 'error' : ''}`}
                                 type="text" placeholder="Фамилия"
@@ -130,7 +139,6 @@ const RegPage = () => {
                                         setErrors(validationErrors);
                                     } else {
                                         postCustomer();
-                                        navigate("/account");
                                     }
                                 }} className="entPage__btn">Зарегистрироваться
                             </button>
