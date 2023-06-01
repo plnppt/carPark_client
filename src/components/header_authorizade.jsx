@@ -52,12 +52,12 @@ const HeaderAuthorizade = () => {
                     </div>
                     <nav className="menu">
                         <ul>
-                            <li><a href="/" className="menu__element">Главная</a></li>
-                            <li><a href="/catalog" className="menu__element">Каталог</a></li>
-                            <li><a href="/rental" className="menu__element">Условия аренды</a></li>
-                            <li><a href="/support" className="menu__element">Поддержка</a></li>
+                            <li><a onClick={() => window.ym(93802524,'reachGoal','MainClickLink')} href="/" className="menu__element">Главная</a></li>
+                            <li><a onClick={() => window.ym(93802524,'reachGoal','CatalogClickLink')} href="/catalog" className="menu__element">Каталог</a></li>
+                            <li><a onClick={() => window.ym(93802524,'reachGoal','RentalCliclLink')} href="/rental" className="menu__element">Условия аренды</a></li>
+                            <li><a onClick={() => window.ym(93802524,'reachGoal','SupportClickLink')} href="/support" className="menu__element">Поддержка</a></li>
                             <li><a href="/#contacts" className="menu__element" onClick={handleScrollToContacts}>Контакты</a></li>
-                            <li><a href="/ent" className="menu__element">Личный кабинет</a></li>
+                            <li><a onClick={() => window.ym(93802524,'reachGoal','EntClickLink')} href="/ent" className="menu__element">Личный кабинет</a></li>
                             {
                                 AuthService.isLoggedIn() ? (
                                     <li><a href="/" onClick={(e) => {

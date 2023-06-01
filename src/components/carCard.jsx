@@ -9,7 +9,8 @@ const CarCard = (props) => {
             <img className="carSelect__cardImg" src={props.srcImg}/>
             <button
                 onClick={(event) => {
-                navigate(`/learnMore1/${props.objId}`)
+                navigate(`/learnMore1/${props.objId}`);
+                    window.ym(93802524,'reachGoal','LearnMoreClickLink')
             }}
                 className="cardBtn">Подробнее
             </button>
